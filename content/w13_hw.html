@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,102 +141,39 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w10 << <a href='w10.html'>Previous</a> <a href='w12.html'>Next</a> >> w12<br /><h1>w11_hw</h1>
-<p>作業一</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/yBRYYVYZic8?si=o_8Pc9Vq57v4LRh_" title="YouTube video player" width="560"></iframe></p>
-<p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/e821869c24e0fc5e8590ba925e2295e4/raw/68020773304b74ea116a66edbe7c68d193a31b42/w11-1.py">解:</a></p>
-<p>程式</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import math
-
-# 定義圓形列印函數
-def print_circle():
-    # 圓形的參數
-    size = 10  # 字元區域大小 (10x10)
-    radius = size // 2  # 圓的半徑
-    center = radius - 0.5  # 圓心位置
-
-    # 調整比例因子，讓圓形更接近正圓
-    aspect_ratio = 2  # 調整行與列的比例
-
-    # 繪製圓形
-    for y in range(size):
-        for x in range(size * aspect_ratio):
-            # 計算該點是否在圓內
-            distance = math.sqrt(((x / aspect_ratio) - center) ** 2 + (y - center) ** 2)
-            if distance &lt;= radius:
-                print("*", end="")  # 圓內用 "*" 表示
-            else:
-                print(" ", end="")  # 圓外用空格表示
-        print()  # 換行
-
-# 呼叫函數列印圓形
-print_circle()</pre>
-<p></p>
-<p>作業二</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/0xzwG443zCc?si=-2fsJCcLyNOvOiTk" title="YouTube video player" width="560"></iframe></p>
-<p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/e821869c24e0fc5e8590ba925e2295e4/raw/68020773304b74ea116a66edbe7c68d193a31b42/w11-2.py">解</a>:</p>
-<p>程式</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+    <div id="tipue_search_content">w12_hw << <a href='w12_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w13_hw</h1>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python3">
+from browser import html
 from browser import document as doc
-
 # 利用 html 建立 canvas 超文件物件
 canvas = html.CANVAS(width=400, height=400)
 brython_div = doc["brython_div1"]
-brython_div &lt;= canvas
-
-# 每一格的 pixel 數
-gs = 40
-
-# gs*tc = canvas width and height
+brython_div <= canvas
 ctx = canvas.getContext("2d")
 
-def dRect(lux, luy, w, h, s=1, c="lightgrey"):
-    ctx.lineWidth = s
-    ctx.strokeStyle = c  # 修正大小寫
-    ctx.beginPath()
-    ctx.rect(lux, luy, w, h)
-    ctx.stroke()
-
-def grid(width, height, grid_pix):
-    for i in range(width):
-        for j in range(height):
-            dRect(i * grid_pix, j * grid_pix, grid_pix, grid_pix, 1, "lightgrey")
-
-def fill(x, y, color):
-    ctx.fillStyle = color
-    ctx.fillRect(x * gs, y * gs, gs, gs)
-
-def draw_circle(grid_size, radius):
-    center = grid_size // 2
-    for y in range(grid_size):
-        for x in range(grid_size):
-            # 使用格子中心進行距離計算
-            distance = (((x + 0.5) - center) ** 2 + ((y + 0.5) - center) ** 2) ** 0.5
-            if distance &lt;= radius:
-                fill(x, y, "black")
-
-# 繪製 10x10 的格子
-grid(10, 10, gs)
-
-# 使用黑色方格圍出一個圓，半徑為 4 格
-draw_circle(10, 4)
-</pre>
-<p></p>
-<p>成品:</p>
-<p><img alt="" height="351" src="./../images/螢幕擷取畫面 2024-11-28 152532.png" width="348"/></p>
-<p></p>
-<p>1.  已知可以用 Python 程式<a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5e6eda7a004c15fa7262b9a80bfa4af6/raw/c2225ac22f32ee8485a630b42cf3f4d8567bb661/up_to_down_pyramid.py">由上往下列印三角形 *</a>, 或<a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5e6eda7a004c15fa7262b9a80bfa4af6/raw/56793c72d4495d564e3cc6214ed5fb68dbd2b21d/left_to_right_pyramid.py">由左往右列印三角形 *</a>, 請將此程式延伸到可以在 10x10 的字元區域中, 以 "*" 字元列印出圓型區域. 完成後請將程式碼存入個人 Gist 後, 直接在個人作業網站中的 Brython 頁面中執行. (提示: ?src=gist_script_URL)</p>
-<p>2. 已知可以在網頁中利用 Brython 繪製方格與塗色, 如下連結, 請設法修改此一程式, 直接將程式存入個人的 Gist, 並利用黑色方塊圍出一個圓形區域.</p>
-<p><a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5705fc2a67aa1db0c0d44d6d0478b08b/raw/f95909804a1f134963cade8463eeb9bd32129ea8/grid_line_and_fill_in_Brython.py">網頁上的方格與塗色</a></p>
-<p>3. 完成上列題目後, 請利用 Youtube 影片<span>簡報</span>個人的解題過程與心得.</p>
-<p></p>
-<p>心得:</p>
-<p>1.嘗試寫了之後才發現我在迴圈這部分還不熟，還需要再努力。</p>
-<p>2.我有點太依賴Chat GPT大神了，還需要另外花時間去學習與理解。</p>
-<p></p>
-<p></p>
-<p></p>
-<br />w10 << <a href='w10.html'>Previous</a> <a href='w12.html'>Next</a> >> w12</div>
+ctx.lineWidth = 1
+ctx.strokeStyle = 'blue'  
+ctx.beginPath()
+ctx.moveTo(10, 10)
+ctx.lineTo(210, 210)
+ctx.stroke()
+</script>
+</p><br />w12_hw << <a href='w12_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
         
     <!-- footer -->
       <div class="container">
