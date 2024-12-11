@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H3">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li><a href='HW 1 Exam.html'>HW 1 Exam</a><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li><a href='w11_hw.html'>w11_hw</a><li><a href='w12.html'>w12</a><li class='has-children'><a href='w12_hw.html'>w12_hw</a><ul class='dropdown'><li><a href='w13_hw.html'>w13_hw</a></li></li></ul></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li><a href='HW 3 Exam.html'>HW 3 Exam</a></li></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li><a href='HW 1 Exam.html'>HW 1 Exam</a><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li><a href='w11_hw.html'>w11_hw</a><li><a href='w12.html'>w12</a><li><a href='w12_hw.html'>w12_hw</a><li><a href='w13_hw.html'>w13_hw</a></li></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li><a href='HW 3 Exam.html'>HW 3 Exam</a></li></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -151,7 +151,7 @@ img.add_border {
 <p>
 <script>
 window.onload=function(){
-brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+    brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 }
 </script>
 </p>
@@ -167,103 +167,125 @@ brython_div = doc["brython_div1"]
 brython_div <= canvas
 
 ctx = canvas.getContext("2d")
-ctx.lineWidth = 2  # 設定邊框線寬
+ctx.lineWidth = 1  # 設定邊框線寬
 
-# 計算第一個圓的圓心與半徑
-center_x1 = 40 + 230 / 2  # 第一個矩形的X中心
-center_y1 = 40 + 230 / 2  # 第一個矩形的Y中心
-radius1 = (230 * (2 ** 0.5)) / 2  # 半徑為對角線的一半
+import random
+colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
 
-# 計算第二個圓的圓心與半徑
-center_x2 = 140 + 220 / 2  # 第二個矩形的X中心
-center_y2 = 140 + 220 / 2  # 第二個矩形的Y中心
-radius2 = (220 * (2 ** 0.5)) / 2  # 半徑為對角線的一半
-
-# 繪製兩個圓的邊框
-ctx.strokeStyle = 'black'  # 設定圓的邊框顏色
+# 繪製外接圓，圓心位於第一個矩形的中央
+center_x1 = 20 + 80 / 2
+center_y1 = 20 + 80 / 2
+radius1 = (80 * (2 ** 0.5)) / 2
+ctx.strokeStyle = random.choice(colors)
 ctx.beginPath()
-ctx.arc(center_x1, center_y1, radius1, 0, 2 * 3.14159)  # 第一個圓
+ctx.arc(center_x1, center_y1, radius1, 0, 2 * 3.14159)
 ctx.stroke()
 
+# 繪製外接圓，圓心位於第二個矩形的中央
+center_x2 = 60 + 80 / 2
+center_y2 = 60 + 80 / 2
+radius2 = (80 * (2 ** 0.5)) / 2
+ctx.strokeStyle = random.choice(colors)
 ctx.beginPath()
-ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)  # 第二個圓
+ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)
 ctx.stroke()
 
-# 繪製兩個矩形的邊框，且不填充顏色
-ctx.strokeStyle = 'red'   # 設定邊框顏色為紅色
+# 繪製第一個矩形
+ctx.fillStyle = random.choice(colors)
+ctx.strokeStyle = random.choice(colors)
+ctx.rect(20, 20, 80, 80)
+ctx.stroke()
 ctx.beginPath()
-ctx.rect(40, 40, 230, 230)  # 第一個矩形的位置和大小
-ctx.stroke()  # 繪製邊框
 
-ctx.strokeStyle = 'green'  # 設定邊框顏色為綠色
+# 繪製第二個矩形
+ctx.strokeStyle = random.choice(colors)
 ctx.beginPath()
-ctx.rect(140, 140, 220, 220)  # 第二個矩形的位置和大小
-ctx.stroke()  # 繪製邊框
+ctx.rect(60, 60, 80, 80)
+ctx.stroke()
 
-# 填充圓形的區域，排除與正方形的重疊部分
-ctx.globalCompositeOperation = 'source-over'  # 設定為填充模式
-ctx.fillStyle = 'lightblue'  # 設定圓形內部填充顏色為淺藍色
-
-# 填充第一個圓形
+# 填充圓形的區域
+ctx.globalCompositeOperation = 'source-over'
+ctx.fillStyle = random.choice(colors)
 ctx.beginPath()
 ctx.arc(center_x1, center_y1, radius1, 0, 2 * 3.14159)
 ctx.fill()
 
-# 填充第二個圓形
+ctx.fillStyle = random.choice(colors)
 ctx.beginPath()
 ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)
 ctx.fill()
 
-# 刪除圓形與正方形重疊的區域
-ctx.globalCompositeOperation = 'destination-out'  # 設定為刪除重疊區域模式
-
-# 刪除第一個圓與正方形重疊的區域
+# 刪除重疊區域
+ctx.globalCompositeOperation = 'destination-out'
 ctx.beginPath()
-ctx.rect(40, 40, 230, 230)  # 第一個矩形區域
+ctx.rect(20, 20, 80, 80)
+ctx.fill()
+ctx.beginPath()
+ctx.rect(60, 60, 80, 80)
 ctx.fill()
 
-# 刪除第二個圓與正方形重疊的區域
+# 填充重疊區域
+ctx.globalCompositeOperation = 'source-over'
+ctx.fillStyle = random.choice(colors)
 ctx.beginPath()
-ctx.rect(140, 140, 220, 220)  # 第二個矩形區域
+ctx.rect(60, 60, 40, 40)
 ctx.fill()
 
-# 填充重疊區域的顏色（位於兩個正方形重疊的區域）
-ctx.globalCompositeOperation = 'source-over'  # 恢復填充模式
-ctx.fillStyle = 'orange'  # 設定重疊區域填充顏色為橙色
-
-# 重疊區域填充
+# 填充第一個矩形的內部
+ctx.fillStyle = random.choice(colors)  # 隨機選擇顏色填充
 ctx.beginPath()
-ctx.rect(140, 140, 130, 130)  # 重疊區域的範圍 (兩個矩形重疊部分)
-ctx.fill()
+ctx.rect(20, 20, 80, 80)  # 第一個矩形區域
+ctx.fill()  # 填充矩形
 
-# 重新繪製斜線，確保它在最上層
-ctx.strokeStyle = 'blue'  # 設定斜線顏色為藍色
+# 繪製第一個矩形的邊框
+ctx.strokeStyle = random.choice(colors)  # 隨機選擇邊框顏色
+ctx.lineWidth = 2  # 設定邊框線寬
 ctx.beginPath()
-ctx.moveTo(40, 40)
-ctx.lineTo(270, 270)  # 斜線
+ctx.rect(20, 20, 80, 80)  # 第一個矩形區域
+ctx.stroke()  # 繪製邊框
+
+# 填充第二個矩形的內部
+ctx.fillStyle = random.choice(colors)  # 隨機選擇顏色填充
+ctx.beginPath()
+ctx.rect(60, 60, 80, 80)  # 第二個矩形區域
+ctx.fill()  # 填充矩形
+
+# 繪製第二個矩形的邊框
+ctx.strokeStyle = random.choice(colors)  # 隨機選擇邊框顏色
+ctx.lineWidth = 2  # 設定邊框線寬
+ctx.beginPath()
+ctx.rect(60, 60, 80, 80)  # 第二個矩形區域
+ctx.stroke()  # 繪製邊框
+
+# 最後繪製所有的邊框
+ctx.strokeStyle = random.choice(colors)
+ctx.beginPath()
+ctx.rect(20, 20, 80, 80)
 ctx.stroke()
 
-# 最後繪製所有的邊框，確保線條不被遮蓋
-ctx.strokeStyle = 'red'   # 第一個矩形的邊框顏色
+ctx.strokeStyle = random.choice(colors)
 ctx.beginPath()
-ctx.rect(40, 40, 230, 230)  # 第一個矩形的位置和大小
+ctx.rect(60, 60, 80, 80)
 ctx.stroke()
 
-ctx.strokeStyle = 'green'  # 第二個矩形的邊框顏色
+ctx.strokeStyle = random.choice(colors)
 ctx.beginPath()
-ctx.rect(140, 140, 220, 220)  # 第二個矩形的位置和大小
-ctx.stroke()
-
-ctx.strokeStyle = 'black'  # 圓形邊框顏色
-ctx.beginPath()
-ctx.arc(center_x1, center_y1, radius1, 0, 2 * 3.14159)  # 第一個圓
+ctx.arc(center_x1, center_y1, radius1, 0, 2 * 3.14159)
 ctx.stroke()
 
 ctx.beginPath()
-ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)  # 第二個圓
+ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)
+ctx.stroke()
+
+# 移動斜線到最上層
+ctx.strokeStyle = random.choice(colors)
+ctx.beginPath()
+ctx.moveTo(20, 20)
+ctx.lineTo(140, 140)
 ctx.stroke()
 </script>
-</p><br />w12_hw << <a href='w12_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
+</p>
+<br />w12_hw << <a href='w12_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
         
     <!-- footer -->
       <div class="container">
