@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,16 +141,93 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">HW 3 Exam << <a href='HW 3 Exam.html'>Previous</a> <a href='HW 4 Exam.html'>Next</a> >> HW 4 Exam<br /><h1>HW 4</h1>
-<h4>主題: 利用 Python 控制機電模擬系統 (20%)</h4>
-<p style="padding-left: 30px;">利用 <a href="https://solvespace.com/">https://solvespace.com/</a> 建立機械系統零組件</p>
-<p style="padding-left: 30px;">利用 <a href="https://www.coppeliarobotics.com/">CoppeliaSim</a> 建立機電模擬系統</p>
-<p style="padding-left: 30px;">利用 <a href="https://manual.coppeliarobotics.com/en/zmqRemoteApiOverview.htm">Python</a> 跨網路控制瀏覽器上的機電模擬系統</p>
-<p style="padding-left: 30px;">範例:</p>
-<p style="padding-left: 60px;"><a href="./../downloads/cd2023_pj3ag4_zmq_football_4.7.7z">cd2023_pj3ag4_zmq_football_4.7.7z</a></p>
-<p style="padding-left: 60px;"><a href="https://localhost:9446/downloads/cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z">cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z</a></p>
-<p>完成上述流程整理後, 請將 HW4 自評分數輸入 cp2024 自評表單中.</p>
-<br />HW 3 Exam << <a href='HW 3 Exam.html'>Previous</a> <a href='HW 4 Exam.html'>Next</a> >> HW 4 Exam</div>
+    <div id="tipue_search_content">w14_ex << <a href='w14_ex.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w15</h1>
+<div>題目1:</div>
+<div><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/1302cf8b3ac8250f9e1b9714343fe25f/raw/9c0fc66b833d37c53b6f3c95db5afe559e586134/w15-1.py">解</a></div>
+<div></div>
+<div></div>
+<p>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+import random
+import math
+
+# 定義一個函式來初始化畫布
+def initialize_canvas(canvas_width=400, canvas_height=400, id="brython_div1"):
+    """
+    初始化畫布，創建一個指定大小的 Canvas 元素，並將其加到 HTML 文件中。
+    返回畫布元素和它的 2D 繪圖上下文。
+    """
+    canvas = html.CANVAS(width=canvas_width, height=canvas_height)
+    brython_div = doc[id]
+    brython_div <= canvas
+    ctx = canvas.getContext("2d")
+    return canvas, ctx
+
+# 定義一個隨機顏色生成函式
+def random_color_generator():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    return f"rgb({r}, {g}, {b})"
+
+# 判斷點是否在圓內
+def is_point_in_circle(px, py, cx, cy, r):
+    return (px - cx) ** 2 + (py - cy) ** 2 <= r ** 2
+
+# 檢查所有圓是否有重疊
+def ensure_no_isolated_circles(circles):
+    overlap = [False] * len(circles)
+    for i in range(len(circles)):
+        for j in range(i + 1, len(circles)):
+            cx1, cy1, r1 = circles[i]
+            cx2, cy2, r2 = circles[j]
+            distance = math.sqrt((cx1 - cx2) ** 2 + (cy1 - cy2) ** 2)
+            if distance <= r1 + r2:  # 判斷是否有重疊
+                overlap[i] = True
+                overlap[j] = True
+    return all(overlap)
+
+# 使用者設定的多個圓，並進行掃描線填充
+def draw_circles():
+    canvas, ctx = initialize_canvas(400, 400)
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+    color_dict = {}
+
+    # 隨機生成 5 到 10 個圓，確保沒有圓是孤立的
+    while True:
+        num_circles = random.randint(5, 10)
+        circles = [
+            (random.randint(50, 350), random.randint(50, 350), random.randint(50, 100))
+            for _ in range(num_circles)
+        ]
+        if ensure_no_isolated_circles(circles):
+            break
+
+    for py in range(0, canvas.height):
+        for px in range(0, canvas.width):
+            overlapping_indices = []
+
+            for i, (cx, cy, r) in enumerate(circles):
+                if is_point_in_circle(px, py, cx, cy, r):
+                    overlapping_indices.append(i)
+
+            if overlapping_indices:
+                overlap_key = "_".join(map(str, sorted(overlapping_indices)))
+                if overlap_key not in color_dict:
+                    color_dict[overlap_key] = random_color_generator()
+                current_color = color_dict[overlap_key]
+            else:
+                current_color = "white"
+
+            ctx.fillStyle = current_color
+            ctx.fillRect(px, py, 1, 1)
+
+draw_circles()
+</script>
+</p><br />w14_ex << <a href='w14_ex.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
         
     <!-- footer -->
       <div class="container">
