@@ -727,6 +727,12 @@ draw_shapes()
 <p></p>
 <h3>w16_exam2</h3>
 <p></p>
+<p>題目: 請以自己的學號最後四碼作為下列繪圖的左上方點座標, (例如: 若學號最後四碼為 3932, 請將 (39, 32) 作為繪圖左上方點座標), 並以紅色文字標示出該點座標 (例如: (39, 32)), 之後請利用 pixel=2 的藍色直線, 自訂迷宮畫布大小, 直接在頁面畫出下列圖像, 繪圖程式除了必須直接列在頁面 html 檔案外, 也請存入自己的 Gist 區域, 並在所完成的圖像下方, 以自選標題的 anchor 連結至 Gist, 讓使用者點擊該連結後, 可以在各自的 Brython 頁面中繪出下列圖像).</p>
+<p></p>
+<p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/0b5c3ede22da07e40801d66cad9b22d3/raw/9245e45c4f5e2f84b7bd16964e48efc4ec8b04d1/w16_exam2.py">解</a></p>
+<p></p>
+<p><a href="https://gist.githubusercontent.com/41323150/0b5c3ede22da07e40801d66cad9b22d3/raw/9245e45c4f5e2f84b7bd16964e48efc4ec8b04d1/w16_exam2.py">程式碼</a></p>
+<p></p>
 <!-- 導入 brython 程式庫 -->
 <p>
 <script src="/static/brython.js"></script>
@@ -746,176 +752,62 @@ brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 from browser import html
 from browser import document as doc
 
-# 利用 html 建立 canvas 超文件物件
-canvas = html.CANVAS(width=600, height=600)
-brython_div = doc["brython_div1"]
+# 建立畫布
+canvas = html.CANVAS(width=600, height=600)  # 畫布大小增加兩倍
+brython_div = doc["brython_div1"]  # 將畫布放置於網頁中的指定 div
 brython_div <= canvas
 
-# 取得 canvas 的繪圖上下文
+# 取得 canvas 的 2D 繪圖上下文
 ctx = canvas.getContext("2d")
 
-# 設置線條樣式
-ctx.strokeStyle = "#ffff00";
-ctx.lineWidth = 8;
+# 每一格的像素大小
+pixel_scale = 100  # 每格的像素比例增加兩倍 (原為20，放大到40)
 
-# 繪製迷宮圖案
-ctx.beginPath();
+# 定義原點 (31, 50) 作為起始點偏移
+offset_x = 31 * 2  # 放大兩倍
+offset_y = 50 * 2  # 放大兩倍
 
-# 外框左上
-# 繪製外框左上部分的水平線
-ctx.moveTo(50, 50);
-ctx.lineTo(250, 50);
-ctx.closePath();
-ctx.stroke();
+# 定義迷宮線條
+lines = [
+    ((0, 0), (1, 0)),
+    ((2, 0), (5, 0)),
+    ((5, 0), (5, 5)),
+    ((0, 5), (4, 5)),
+    ((4, 5), (4, 3)),
+    ((2, 3), (4, 3)),
+    ((1, 1), (1, 4)),
+    ((3, 3), (3, 2)),
+    # 第二條線
+    ((0, 0), (0, 5)),
+    ((0, 5), (4, 5)),
+    ((4, 4), (2, 4)),
+    ((2, 2), (2, 1)),
+    ((1, 1), (4, 1)),
+    ((4, 0), (4, 2)),
+]
 
-# 外框右上
-# 繪製外框右上部分的水平線
-ctx.beginPath();
-ctx.moveTo(350, 50);
-ctx.lineTo(550, 50);
-ctx.closePath();
-ctx.stroke();
+# 繪製迷宮線條
+ctx.strokeStyle = "blue"  # 設定線條顏色
+ctx.lineWidth = 2  # 設定線條寬度
 
-# 外框左
-# 繪製外框左邊的垂直線
-ctx.beginPath();
-ctx.moveTo(50, 50);
-ctx.lineTo(50, 550);
-ctx.closePath();
-ctx.stroke();
+for line in lines:
+    start = line[0]
+    end = line[1]
+    ctx.beginPath()
+    ctx.moveTo(
+        offset_x + start[0] * pixel_scale,
+        offset_y + start[1] * pixel_scale
+    )
+    ctx.lineTo(
+        offset_x + end[0] * pixel_scale,
+        offset_y + end[1] * pixel_scale
+    )
+    ctx.stroke()
 
-# 外框右
-# 繪製外框右邊的垂直線
-ctx.beginPath();
-ctx.moveTo(550, 50);
-ctx.lineTo(550, 550);
-ctx.closePath();
-ctx.stroke();
-
-# 外框左下
-# 繪製外框左下部分的水平線
-ctx.moveTo(50, 550);
-ctx.lineTo(250, 550);
-ctx.closePath();
-ctx.stroke();
-
-# 外框右下
-# 繪製外框右下部分的水平線
-ctx.beginPath();
-ctx.moveTo(350, 550);
-ctx.lineTo(550, 550);
-ctx.closePath();
-ctx.stroke();
-
-# 內部橫1
-# 繪製第一條內部水平線
-ctx.beginPath();
-ctx.moveTo(150, 150);
-ctx.lineTo(450, 150);
-ctx.closePath();
-ctx.stroke();
-
-# 內部橫2
-# 繪製第二條內部水平線
-ctx.beginPath();
-ctx.moveTo(50, 250);
-ctx.lineTo(250, 250);
-ctx.closePath();
-ctx.stroke();
-
-# 內部橫3
-# 繪製第三條內部水平線
-ctx.beginPath();
-ctx.moveTo(150, 350);
-ctx.lineTo(450, 350);
-ctx.closePath();
-ctx.stroke();
-
-# 內部橫4
-# 繪製第四條內部水平線
-ctx.beginPath();
-ctx.moveTo(250, 450);
-ctx.lineTo(350, 450);
-ctx.closePath();
-ctx.stroke();
-
-# 內部直1
-# 繪製第一條內部垂直線
-ctx.beginPath();
-ctx.moveTo(250, 150);
-ctx.lineTo(250, 253.5);
-ctx.closePath();
-ctx.stroke();
-
-# 內部直2
-# 繪製第二條內部垂直線
-ctx.beginPath();
-ctx.moveTo(450, 150-3.5);
-ctx.lineTo(450, 250);
-ctx.closePath();
-ctx.stroke();
-
-# 內部直3
-# 繪製第三條內部垂直線
-ctx.beginPath();
-ctx.moveTo(350, 250);
-ctx.lineTo(350, 350);
-ctx.closePath();
-ctx.stroke();
-
-# 內部直4
-# 繪製第四條內部垂直線
-ctx.beginPath();
-ctx.moveTo(150, 350);
-ctx.lineTo(150, 350+100);
-ctx.closePath();
-ctx.stroke();
-
-# 內部直5
-# 繪製第五條內部垂直線
-ctx.beginPath();
-ctx.moveTo(450, 350);
-ctx.lineTo(450, 350+200);
-ctx.closePath();
-ctx.stroke();
-
-# 內部直6
-# 繪製第六條內部垂直線
-ctx.beginPath();
-ctx.moveTo(250,450);
-ctx.lineTo(250,450+100);
-ctx.closePath();
-ctx.stroke();
-
-# 將虛擬座標系的座標轉換為畫布像素坐標
-def virtual_to_canvas(vx, vy, canvas_width, canvas_height, v_min_x, v_max_x, v_min_y, v_max_y):
-    x = (vx - v_min_x) / (v_max_x - v_min_x) * canvas_width
-    y = canvas_height - (vy - v_min_y) / (v_max_y - v_min_y) * canvas_height  # Y 軸反向
-    return x, y
-
-# 設定虛擬座標系範圍 (假設為 0 到 100)
-v_min_x, v_max_x = 0, 100
-v_min_y, v_max_y = 0, 100
-
-# 轉換 (31, 50) 至畫布像素坐標
-canvas_width, canvas_height = 600, 600
-cx, cy = virtual_to_canvas(31, 50, canvas_width, canvas_height, v_min_x, v_max_x, v_min_y, v_max_y)
-
-# 繪製圓點
-ctx.beginPath()
-ctx.arc(cx, cy, 5, 0, 2 * Math.PI)  # 半徑設為 5 像素
-ctx.fillStyle = "#ff0000"          # 填充紅色
-ctx.fill()
-ctx.closePath()
-
-# 標示圓點座標
-ctx.font = "12px Arial"
-ctx.fillStyle = "#000000"  # 黑色文字
-ctx.fillText("(31, 50)", cx + 10, cy - 10)
-
-# 紀錄完成訊息
-# 在控制台輸出繪製完成的訊息
-console.log("迷宮繪製完成，並添加了一個圓點");
+# 將座標標示移動到紅點附近的適當位置
+ctx.font = "18px Arial"  # 放大字體大小 (原為14px)
+ctx.fillStyle = "red"
+ctx.fillText("(31, 50)", offset_x + 10, offset_y - 15)  # 在紅點的右上方標出座標
 </script>
 </p><h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
