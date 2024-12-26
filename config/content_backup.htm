@@ -722,7 +722,7 @@ draw_shapes()
 </script>
 </p>
 <p></p>
-<p></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/p7RboVzgEWM?si=HaW2HFLvzRZYDsC2" title="YouTube video player" width="560"></iframe></p>
 <p></p><h3>w16_exam2</h3>
 <p></p>
 <p>題目: 請以自己的學號最後四碼作為下列繪圖的左上方點座標, (例如: 若學號最後四碼為 3932, 請將 (39, 32) 作為繪圖左上方點座標), 並以紅色文字標示出該點座標 (例如: (39, 32)), 之後請利用 pixel=2 的藍色直線, 自訂迷宮畫布大小, 直接在頁面畫出下列圖像, 繪圖程式除了必須直接列在頁面 html 檔案外, 也請存入自己的 Gist 區域, 並在所完成的圖像下方, 以自選標題的 anchor 連結至 Gist, 讓使用者點擊該連結後, 可以在各自的 Brython 頁面中繪出下列圖像).</p>
@@ -812,6 +812,122 @@ ctx.fillText("(31, 50)", offset_x + 10, offset_y - 15)  # 在紅點的右上方�
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/OgfqL2e1MSc?si=w9tisidLTVpxLcy7" title="YouTube video player" width="560"></iframe></p>
 <h3>w16_exam3</h3>
 <p>題目: 請以自己的學號最後四碼作為下列繪圖的左上方點座標, (例如: 若學號最後四碼為 3932, 請將 (39, 32) 作為繪圖左上方點座標), 並以紅色文字標示出該點座標 (例如: (39, 32)), 之後請利用 pixel=2 的黑色直線, 自訂迷宮畫布大小, 直接在頁面畫出下列圖像, 並且利用紅色連續線段標示從上方入口, 走至下方出口的路線圖. 繪圖程式除了必須直接列在頁面 html 檔案外, 也請存入自己的 Gist 區域, 並在所完成的圖像下方, 以自選標題的 anchor 連結至 Gist, 讓使用者點擊該連結後, 可以在各自的 Brython 頁面中繪出下列圖像).</p>
+<p></p>
+<p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/0b5c3ede22da07e40801d66cad9b22d3/raw/71fc155f80d7c8994dbfd344cb99d2cea6225858/w16_exam3.py">解</a></p>
+<p></p>
+<p><a href="https://gist.githubusercontent.com/41323150/0b5c3ede22da07e40801d66cad9b22d3/raw/71fc155f80d7c8994dbfd344cb99d2cea6225858/w16_exam3.py">程式碼</a></p>
+<p></p>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+
+# 建立畫布
+canvas = html.CANVAS(width=600, height=600)  # 畫布大小增加兩倍
+brython_div = doc["brython_div1"]  # 將畫布放置於網頁中的指定 div
+brython_div <= canvas
+
+# 取得 canvas 的 2D 繪圖上下文
+ctx = canvas.getContext("2d")
+
+# 每一格的像素大小
+pixel_scale = 100  # 每格的像素比例增加兩倍 (原為20，放大到40)
+
+# 定義原點 (31, 50) 作為起始點偏移
+offset_x = 31 * 2  # 放大兩倍
+offset_y = 50 * 2  # 放大兩倍
+
+# 定義迷宮線條 (外框)
+lines = [
+    ((0, 0), (1, 0)),
+    ((2, 0), (5, 0)),
+    ((5, 0), (5, 5)),
+    ((0, 5), (4, 5)),
+    ((4, 5), (4, 3)),
+    ((2, 3), (4, 3)),
+    ((1, 1), (1, 4)),
+    ((3, 3), (3, 2)),
+    # 第二條線
+    ((0, 0), (0, 5)),
+    ((0, 5), (4, 5)),
+    ((4, 4), (2, 4)),
+    ((2, 2), (2, 1)),
+    ((1, 1), (4, 1)),
+    ((4, 0), (4, 2)),
+]
+
+# 繪製迷宮線條 (外框)
+ctx.strokeStyle = "black"  # 設定外框顏色為黑色
+ctx.lineWidth = 2  # 設定線條寬度
+
+for line in lines:
+    start = line[0]
+    end = line[1]
+    ctx.beginPath()
+    ctx.moveTo(
+        offset_x + start[0] * pixel_scale,
+        offset_y + start[1] * pixel_scale
+    )
+    ctx.lineTo(
+        offset_x + end[0] * pixel_scale,
+        offset_y + end[1] * pixel_scale
+    )
+    ctx.stroke()
+
+# 定義過關路線
+solution_path = [
+    ((1.5, 0), (1.5, 0.5)),
+    ((0.5, 0.5), (1.5, 0.5)),
+    ((0.5, 0.5), (0.5, 4.5)),
+    ((0.5, 4.5), (1.5, 4.5)),
+    ((1.5, 4.5), (1.5, 2.5)),
+    ((1.5, 2.5), (2.5, 2.5)),
+    ((2.5, 2.5), (2.5, 1.5)),
+    ((2.5, 1.5), (3.5, 1.5)),
+    ((3.5, 1.5), (3.5, 2.5)),
+    ((3.5, 2.5), (4.5, 2.5)),
+    ((4.5, 2.5), (4.5, 5)),
+]
+
+# 繪製過關路線
+ctx.strokeStyle = "red"  # 設定過關路線顏色為紅色
+ctx.lineWidth = 3  # 過關路線稍粗一些，便於區分
+
+for line in solution_path:
+    start = line[0]
+    end = line[1]
+    ctx.beginPath()
+    ctx.moveTo(
+        offset_x + start[0] * pixel_scale,
+        offset_y + start[1] * pixel_scale
+    )
+    ctx.lineTo(
+        offset_x + end[0] * pixel_scale,
+        offset_y + end[1] * pixel_scale
+    )
+    ctx.stroke()
+
+# 將座標標示移動到紅點附近的適當位置
+ctx.font = "18px Arial"  # 放大字體大小 (原為14px)
+ctx.fillStyle = "blue"  # 設定座標文字顏色為藍色
+ctx.fillText("(31, 50)", offset_x + 10, offset_y - 15)  # 在紅點的右上方標出座標
+</script>
+</p>
+<p></p>
 <p></p>
 <p></p><h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
