@@ -42,10 +42,9 @@
 <p></p>
 <h2>w7</h2>
 <p>錄影測試</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/oj67pcsgvkE?si=_5opq2wY2YW24nme" title="YouTube video player" width="560"></iframe></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MtO6z1MQjEA?si=cfd3uAi7KpArf2UU" title="YouTube video player" width="560"></iframe></p>
 <p></p>
-<p></p>
-<h2>w10</h2>
+<p></p><h2>w10</h2>
 <p><strong></strong>題目一</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/wAT19gSGp0o?si=TZu8wz_Hj68qWeeI" title="YouTube video player" width="560"></iframe></p>
 <p></p>
@@ -210,6 +209,133 @@ for i in range(n):  #對於每一行
 <h2>w13_hw</h2>
 <p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/5a09a826c0d00aba5a336335c7a87747/raw/0daec87ebf43940eb68cec3e7c720e513c01056a/w13_hw.py">解</a></p>
 <p></p>
+<p></p>
+<p><a href="https://gist.githubusercontent.com/41323150/5a09a826c0d00aba5a336335c7a87747/raw/dda8c14567e76fed24d075c64174aaa6fb9db7a9/w13_hw.py">程式碼</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+import math
+
+canvas = html.CANVAS(width=500, height=500)
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 4
+
+# 混色的
+ctx.globalCompositeOperation = "screem"
+
+# 黑邊圓*2 (每個畫四個邊邊)
+ctx.strokeStyle = 'black'
+
+# 第一個圓
+ctx.beginPath()
+ctx.arc(160, 160, 141, 0.25 * math.pi, 0.75 * math.pi)
+ctx.fillStyle = "Coral"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(160, 160, 141, 0.75 * math.pi, 1.25 * math.pi)
+ctx.fillStyle = "MediumPurple"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(160, 160, 141, 1.25 * math.pi, 1.75 * math.pi)
+ctx.fillStyle = "LimeGreen"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(160, 160, 141, 1.75 * math.pi, 0.25 * math.pi)
+ctx.fillStyle = "Beige"  
+ctx.fill()
+ctx.stroke()
+
+# 第二個圓
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.25 * math.pi, 1.75 * math.pi)
+ctx.fillStyle = "SkyBlue"
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.75 * math.pi, 0.25 * math.pi)
+ctx.fillStyle = "Crimson"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.25 * math.pi, 0.75 * math.pi)
+ctx.fillStyle = "LightCyan"
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.75 * math.pi, 1.25 * math.pi)
+ctx.fillStyle = "Gold"
+ctx.fill()
+ctx.stroke()
+
+# 紅方形*2 (4個三角形)
+ctx.strokeStyle = 'red'
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(60, 260)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "ForestGreen"
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(260, 60)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "DarkSlateBlue"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(360, 160)
+ctx.lineTo(360, 360)
+ctx.fillStyle = "LightYellow" 
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(160, 360)
+ctx.lineTo(360, 360)
+ctx.fillStyle = "PaleGreen"  
+ctx.fill()
+ctx.stroke()
+
+# 重疊的小方型
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(160, 260)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "SteelBlue"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(260, 160)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "DarkOrchid"
+ctx.fill()
+ctx.stroke()
+
+# 藍斜線
+ctx.strokeStyle = 'blue'
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(360,360)
+ctx.stroke()</pre>
+<p></p>
 <!-- 導入 brython 程式庫 -->
 <p>
 <script src="/static/brython.js"></script>
@@ -351,12 +477,97 @@ ctx.moveTo(60, 60)
 ctx.lineTo(360,360)
 ctx.stroke()
 </script>
-</p>
-<h2>w14_ex</h2>
+</p><h2>w14_ex</h2>
 <p>3圓相切</p>
+<p><a href="https://gist.githubusercontent.com/41323150/5a09a826c0d00aba5a336335c7a87747/raw/dda8c14567e76fed24d075c64174aaa6fb9db7a9/w14_ex-1.py">程式碼</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+import random
+import math
+
+# 定義一個函式來初始化畫布
+def initialize_canvas(canvas_width=400, canvas_height=400, id="brython_div1"):
+    canvas = html.CANVAS(width=canvas_width, height=canvas_height)
+    brython_div = doc[id]  # 獲取指定 id 的 div 元素
+    brython_div &lt;= canvas  # 將 canvas 插入到該 div 中
+    ctx = canvas.getContext("2d")
+    return canvas, ctx
+
+# 定義一個隨機顏色生成函式
+def random_color_generator():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    return f"rgb({r}, {g}, {b})"
+
+# 判斷點 (px, py) 是否在圓內
+def is_point_in_circle(px, py, cx, cy, r):
+    return (px - cx) ** 2 + (py - cy) ** 2 &lt;= r ** 2
+
+# 繪製三個圓並處理交集
+def draw_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3):
+    canvas, ctx = initialize_canvas(400, 400)
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+    color_dict = {}
+
+    for py in range(0, canvas.height):
+        for px in range(0, canvas.width):
+            # 判斷該點是否在各圓內
+            in_circle1 = is_point_in_circle(px, py, x1, y1, r1)
+            in_circle2 = is_point_in_circle(px, py, x2, y2, r2)
+            in_circle3 = is_point_in_circle(px, py, x3, y3, r3)
+
+            # 確定交集情況
+            if in_circle1 and in_circle2 and in_circle3:
+                if "intersection_all" not in color_dict:
+                    color_dict["intersection_all"] = random_color_generator()
+                current_color = color_dict["intersection_all"]
+            elif in_circle1 and in_circle2:
+                if "intersection_1_2" not in color_dict:
+                    color_dict["intersection_1_2"] = random_color_generator()
+                current_color = color_dict["intersection_1_2"]
+            elif in_circle1 and in_circle3:
+                if "intersection_1_3" not in color_dict:
+                    color_dict["intersection_1_3"] = random_color_generator()
+                current_color = color_dict["intersection_1_3"]
+            elif in_circle2 and in_circle3:
+                if "intersection_2_3" not in color_dict:
+                    color_dict["intersection_2_3"] = random_color_generator()
+                current_color = color_dict["intersection_2_3"]
+            elif in_circle1:
+                if "circle1" not in color_dict:
+                    color_dict["circle1"] = random_color_generator()
+                current_color = color_dict["circle1"]
+            elif in_circle2:
+                if "circle2" not in color_dict:
+                    color_dict["circle2"] = random_color_generator()
+                current_color = color_dict["circle2"]
+            elif in_circle3:
+                if "circle3" not in color_dict:
+                    color_dict["circle3"] = random_color_generator()
+                current_color = color_dict["circle3"]
+            else:
+                current_color = "white"  # 背景色
+
+            ctx.fillStyle = current_color
+            ctx.fillRect(px, py, 1, 1)  # 填充一個像素
+
+# 設定三個圓的圓心和半徑
+x1, y1, r1 = 150, 200, 100  # 圓1
+x2, y2, r2 = 250, 200, 100  # 圓2
+x3, y3, r3 = 200, 300, 100  # 圓3
+
+# 呼叫函式繪製三個圓
+draw_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)</pre>
+<p><br/><br/></p>
 <p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/5a09a826c0d00aba5a336335c7a87747/raw/b09badf7e2388569b1a49ab23c9381ecd4215ad7/w14_ex-1.py">解</a></p>
 <p>and</p>
 <p>多圓相切</p>
+<p></p>
+<p><a href="https://gist.githubusercontent.com/41323150/5a09a826c0d00aba5a336335c7a87747/raw/dda8c14567e76fed24d075c64174aaa6fb9db7a9/w14_ex-2.py">程式碼</a></p>
+<p>.</p>
+<p></p>
 <p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/5a09a826c0d00aba5a336335c7a87747/raw/b09badf7e2388569b1a49ab23c9381ecd4215ad7/w14_ex-2.py">解</a></p>
 <!-- 導入 brython 程式庫 -->
 <p>
@@ -470,8 +681,7 @@ window.onload=function(){
 </script>
 </p>
 <div id="brython_div1"></div>
-<div></div>
-<h2>w15</h2>
+<div></div><h2>w15</h2>
 <div>題目1:</div>
 <div><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/1302cf8b3ac8250f9e1b9714343fe25f/raw/9c0fc66b833d37c53b6f3c95db5afe559e586134/w15-1.py">從 1 累加到 100</a></div>
 <div></div>
@@ -928,7 +1138,7 @@ ctx.fillText("(31, 50)", offset_x + 10, offset_y - 15)  # 在紅點的右上方�
 </script>
 </p>
 <p></p>
-<p></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/NGR33pmq-sI?si=vIlbTzukR700WlDO" title="YouTube video player" width="560"></iframe></p>
 <p></p><h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
