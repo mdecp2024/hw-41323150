@@ -42,7 +42,10 @@
 <p></p>
 <h2>w7</h2>
 <p>錄影測試</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MtO6z1MQjEA?si=cfd3uAi7KpArf2UU" title="YouTube video player" width="560"></iframe></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">a = "我會寫python程式了"
+for i in range(1,10):
+    print(i,a)</pre>
+<p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/95fc51c6b7712763a5f856bde9d9206f/raw/c3fa5ecc6c5a32f14a963ba8534495d79953057c/w7.py">完成品</a><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MtO6z1MQjEA?si=cfd3uAi7KpArf2UU" title="YouTube video player" width="560"></iframe></p>
 <p></p>
 <p></p><h2>w10</h2>
 <p><strong></strong>題目一</p>
@@ -844,102 +847,91 @@ draw_circles()
 <div></div><h2>w15</h2>
 <div>題目1:</div>
 <div><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/1302cf8b3ac8250f9e1b9714343fe25f/raw/9c0fc66b833d37c53b6f3c95db5afe559e586134/w15-1.py">從 1 累加到 100</a></div>
-<div></div>
+<div>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義函數來計算和顯示結果
+def calculate_sum():
+    total = 0
+    for i in range(1, 101):  # 從 1 遍歷到 100
+        total += i
+    print(f"總和是: {total}")  # 在控制台顯示結果
+
+# 呼叫函數執行
+calculate_sum()</pre>
+</div>
+<p></p>
 <div>題目2:</div>
 <div><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/1302cf8b3ac8250f9e1b9714343fe25f/raw/41a67c3fb5b64ab5796045bb6e74d786a308db75/w15-2.py">addto</a></div>
 <div></div>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def addto(start, end):
+    """
+    計算從 start 到 end 的整數總和。
+    
+    參數:
+    - start: 起始值 (整數)
+    - end: 結束值 (整數)
+    
+    回傳:
+    - 總和 (整數)
+    """
+    total = sum(range(start, end + 1))  # 使用內建的 sum 函數
+    return total
+
+# 呼叫函式並印出結果
+result = addto(1, 100)
+print(f"累加的結果是: {result}")</pre>
+<p></p>
+<p></p>
 <div>題目3:</div>
 <div><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/1302cf8b3ac8250f9e1b9714343fe25f/raw/41a67c3fb5b64ab5796045bb6e74d786a308db75/w15_hw-3.py">add_only_even</a></div>
 <div></div>
-<div></div>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def add_only_even(start, end):
+    """
+    計算從 start 到 end 之間所有偶數的總和。
+    
+    參數:
+    - start: 起始值 (整數)
+    - end: 結束值 (整數)
+    
+    回傳:
+    - 偶數總和 (整數)
+    """
+    # 使用範圍產生偶數並計算總和
+    total = sum(i for i in range(start, end + 1) if i % 2 == 0)
+    return total
+
+# 呼叫函式並印出結果
+result = add_only_even(1, 100)
+print(f"累加的偶數結果是: {result}")</pre>
+<p></p>
 <div>題目4:</div>
 <div><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/1302cf8b3ac8250f9e1b9714343fe25f/raw/4e7b58735c5efcc4d2ffd3b9084ccae4ef5b5900/w15_hw-4.py">add_avoid_8</a></div>
 <div></div>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def add_avoid_8(start, end):
+    """計算從 start 到 end 的累加結果，避開包含 '8' 的數字以及基數（奇數）"""
+    valid_numbers = [x for x in range(start, end + 1) if '8' not in str(x) and x % 2 == 0]
+    print("符合條件的數字:", valid_numbers)  # 打印符合條件的數字，看看哪些數字被選中
+    return sum(valid_numbers)
+
+# 測試函式
+result = add_avoid_8(1, 100)
+print(f"從 1 到 100 的累加總和（避開包含 '8' 的數字以及基數）是：{result}")</pre>
+<p></p>
 <div>補充:</div>
 <div><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/1302cf8b3ac8250f9e1b9714343fe25f/raw/e859237185afa51440f92b7d4209880ef0b00100/w15_-5.py">去除3跟8</a></div>
-<p>
-<script type="text/python3">
-from browser import html
-from browser import document as doc
-import random
-import math
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def calculate_sum():
+    total = 0
+    valid_numbers = []  # 用來存儲符合條件的數字
+    for i in range(1, 101):  # 從 1 遍歷到 100
+        # 檢查數字中是否包含 '8' 或 '3'
+        if '8' not in str(i) and '3' not in str(i):
+            total += i  # 累加符合條件的數字
+            valid_numbers.append(i)  # 把符合條件的數字加到列表中
+    print(f"符合條件的數字是: {valid_numbers}")  # 顯示符合條件的數字
+    print(f"總和是: {total}")  # 顯示最終總和
 
-# 定義一個函式來初始化畫布
-def initialize_canvas(canvas_width=400, canvas_height=400, id="brython_div1"):
-    """
-    初始化畫布，創建一個指定大小的 Canvas 元素，並將其加到 HTML 文件中。
-    返回畫布元素和它的 2D 繪圖上下文。
-    """
-    canvas = html.CANVAS(width=canvas_width, height=canvas_height)
-    brython_div = doc[id]
-    brython_div <= canvas
-    ctx = canvas.getContext("2d")
-    return canvas, ctx
-
-# 定義一個隨機顏色生成函式
-def random_color_generator():
-    r = random.randint(0, 255)
-    g = random.randint(0, 255)
-    b = random.randint(0, 255)
-    return f"rgb({r}, {g}, {b})"
-
-# 判斷點是否在圓內
-def is_point_in_circle(px, py, cx, cy, r):
-    return (px - cx) ** 2 + (py - cy) ** 2 <= r ** 2
-
-# 檢查所有圓是否有重疊
-def ensure_no_isolated_circles(circles):
-    overlap = [False] * len(circles)
-    for i in range(len(circles)):
-        for j in range(i + 1, len(circles)):
-            cx1, cy1, r1 = circles[i]
-            cx2, cy2, r2 = circles[j]
-            distance = math.sqrt((cx1 - cx2) ** 2 + (cy1 - cy2) ** 2)
-            if distance <= r1 + r2:  # 判斷是否有重疊
-                overlap[i] = True
-                overlap[j] = True
-    return all(overlap)
-
-# 使用者設定的多個圓，並進行掃描線填充
-def draw_circles():
-    canvas, ctx = initialize_canvas(400, 400)
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-    color_dict = {}
-
-    # 隨機生成 5 到 10 個圓，確保沒有圓是孤立的
-    while True:
-        num_circles = random.randint(5, 10)
-        circles = [
-            (random.randint(50, 350), random.randint(50, 350), random.randint(50, 100))
-            for _ in range(num_circles)
-        ]
-        if ensure_no_isolated_circles(circles):
-            break
-
-    for py in range(0, canvas.height):
-        for px in range(0, canvas.width):
-            overlapping_indices = []
-
-            for i, (cx, cy, r) in enumerate(circles):
-                if is_point_in_circle(px, py, cx, cy, r):
-                    overlapping_indices.append(i)
-
-            if overlapping_indices:
-                overlap_key = "_".join(map(str, sorted(overlapping_indices)))
-                if overlap_key not in color_dict:
-                    color_dict[overlap_key] = random_color_generator()
-                current_color = color_dict[overlap_key]
-            else:
-                current_color = "white"
-
-            ctx.fillStyle = current_color
-            ctx.fillRect(px, py, 1, 1)
-
-draw_circles()
-</script>
-</p>
-<h1>HW 2</h1>
+# 呼叫函數執行
+calculate_sum()</pre>
+<p><br/><br/></p><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
 <hr/>
@@ -956,7 +948,121 @@ draw_circles()
 <p>請以自己的學號最後四碼作為繪圖的座標原點, (例如: 若學號最後四碼為 3932, 請將 (39, 32) 作為繪圖座標原點), 並以 pixel=2 的黑色直線分別利用 Brython 繪圖, 標示出向右為正的 X 軸, 以及向下為正的 Y 軸, 並且利用文字標示出原點座標 (例如: (39, 32)), 之後請自選最左側圖形的起始點座標, 直接在頁面畫出下列圖像, 繪圖程式除了必須直接列在頁面 html 檔案外, 也請存入自己的 Gist 區域, 並在所完成的圖像下方, 以自選標題的 anchor 連結至 Gist, 讓使用者點擊該連結後, 可以在各自的 Brython 頁面中繪出下列圖像 (<a href="https://www.ccplusmedia.com/wp-content/uploads/2019/10/creative-ad_landscape3.jpg">圖片來源</a>).</p>
 <p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/0b5c3ede22da07e40801d66cad9b22d3/raw/ff21108a37e5ac48e7b6bf6002d3a07e609f91a9/w16_exam1.py">解</a></p>
 <p></p>
+<p></p>
 <p><a href="https://gist.githubusercontent.com/41323150/0b5c3ede22da07e40801d66cad9b22d3/raw/ff21108a37e5ac48e7b6bf6002d3a07e609f91a9/w16_exam1.py">程式碼</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
+import math
+
+# 初始化畫布
+def initialize_canvas(canvas_width=1000, canvas_height=400):
+    canvas = html.CANVAS(width=canvas_width, height=canvas_height)
+    document["brython_div1"] &lt;= canvas  # 加入到 HTML 容器中
+    ctx = canvas.getContext("2d")  # 獲取 2D 繪圖上下文
+    return canvas, ctx
+
+# 設定學號後四碼原點 (31, 50)
+origin_x, origin_y = 3.1 * 10, 5 * 10  # 原始座標
+
+# 初始化畫布
+canvas, ctx = initialize_canvas(1000, 400)
+
+# 繪製 X 軸和 Y 軸，只畫向右和向下的部分，並標註
+def draw_axes():
+    ctx.beginPath()
+    
+    # 繪製 X 軸向右延伸
+    ctx.moveTo(origin_x, origin_y)  # 原點
+    ctx.lineTo(canvas.width, origin_y)  # 向右延伸
+    ctx.lineTo(canvas.width - 10, origin_y - 5)  # X 軸箭頭
+    ctx.lineTo(canvas.width - 10, origin_y + 5)  # X 軸箭頭
+    ctx.strokeStyle = "black"
+    ctx.lineWidth = 2
+    ctx.stroke()
+
+    # 繪製 Y 軸向下延伸
+    ctx.beginPath()
+    ctx.moveTo(origin_x, origin_y)  # 原點
+    ctx.lineTo(origin_x, canvas.height)  # 向下延伸
+    ctx.lineTo(origin_x - 5, canvas.height - 10)  # Y 軸箭頭
+    ctx.lineTo(origin_x + 5, canvas.height - 10)  # Y 軸箭頭
+    ctx.stroke()
+
+    # 標註原點及方向
+    ctx.fillStyle = "black"
+    ctx.font = "12px Arial"
+    ctx.fillText(f"({31}, {50})", origin_x + 5, origin_y - 5)
+    ctx.fillText("正X", canvas.width - 40, origin_y - 10)  # X 軸正方向
+    ctx.fillText("正Y", origin_x + 10, canvas.height - 10)  # Y 軸正方向
+
+# 繪製六邊形
+def draw_hexagon(x, y, size, color):
+    ctx.beginPath()
+    for i in range(6):
+        angle = (i * 60) * (math.pi / 180)
+        px = x + size * math.cos(angle)
+        py = y + size * math.sin(angle)
+        if i == 0:
+            ctx.moveTo(px, py)
+        else:
+            ctx.lineTo(px, py)
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+
+# 繪製菱形
+def draw_diamond(x, y, width, height, color):
+    ctx.beginPath()
+    ctx.moveTo(x, y - height / 2)
+    ctx.lineTo(x + width / 2, y)
+    ctx.lineTo(x, y + height / 2)
+    ctx.lineTo(x - width / 2, y)
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+
+# 繪製三角形
+def draw_triangle(x, y, size, color):
+    ctx.beginPath()
+    ctx.moveTo(x, y - size)  # 頂點
+    ctx.lineTo(x - size, y + size)  # 左下角
+    ctx.lineTo(x + size, y + size)  # 右下角
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+
+# 繪製圓形
+def draw_circle(x, y, radius, color):
+    ctx.beginPath()
+    ctx.arc(x, y, radius, 0, 2 * math.pi)
+    ctx.fillStyle = color
+    ctx.fill()
+
+# 繪製矩形
+def draw_rectangle(x, y, width, height, color):
+    ctx.beginPath()
+    ctx.rect(x, y, width, height)
+    ctx.fillStyle = color
+    ctx.fill()
+
+# 繪製長條形
+def draw_bar(x, y, width, height, color):
+    draw_rectangle(x, y, width, height, color)
+
+# 繪製圖形
+def draw_shapes():
+    # 繪製圖形時調整 y 坐標，使其在原點下方
+    draw_hexagon(origin_x + 50, origin_y + 100, 40, "orange")  # 六邊形
+    draw_diamond(origin_x + 150, origin_y + 100, 50, 80, "teal")  # 菱形
+    draw_triangle(origin_x + 250, origin_y + 100, 40, "cyan")  # 三角形
+    draw_circle(origin_x + 350, origin_y + 100, 40, "pink")  # 圓形
+    draw_rectangle(origin_x + 450, origin_y + 70, 60, 60, "yellow")  # 矩形
+    draw_bar(origin_x + 550, origin_y + 85, 100, 30, "blue")  # 長條形
+
+# 執行繪圖
+draw_axes()
+draw_shapes()</pre>
+<p><br/><br/></p>
+<p></p>
 <p></p>
 <!-- 導入 brython 程式庫 -->
 <p>
@@ -1101,6 +1207,68 @@ draw_shapes()
 <p></p>
 <p><a href="https://gist.githubusercontent.com/41323150/0b5c3ede22da07e40801d66cad9b22d3/raw/9245e45c4f5e2f84b7bd16964e48efc4ec8b04d1/w16_exam2.py">程式碼</a></p>
 <p></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+
+# 建立畫布
+canvas = html.CANVAS(width=600, height=600)  # 畫布大小增加兩倍
+brython_div = doc["brython_div1"]  # 將畫布放置於網頁中的指定 div
+brython_div &lt;= canvas
+
+# 取得 canvas 的 2D 繪圖上下文
+ctx = canvas.getContext("2d")
+
+# 每一格的像素大小
+pixel_scale = 100  # 每格的像素比例增加兩倍 (原為20，放大到40)
+
+# 定義原點 (31, 50) 作為起始點偏移
+offset_x = 31 * 2  # 放大兩倍
+offset_y = 50 * 2  # 放大兩倍
+
+# 定義迷宮線條
+lines = [
+    ((0, 0), (1, 0)),
+    ((2, 0), (5, 0)),
+    ((5, 0), (5, 5)),
+    ((0, 5), (4, 5)),
+    ((4, 5), (4, 3)),
+    ((2, 3), (4, 3)),
+    ((1, 1), (1, 4)),
+    ((3, 3), (3, 2)),
+    # 第二條線
+    ((0, 0), (0, 5)),
+    ((0, 5), (4, 5)),
+    ((4, 4), (2, 4)),
+    ((2, 2), (2, 1)),
+    ((1, 1), (4, 1)),
+    ((4, 0), (4, 2)),
+]
+
+# 繪製迷宮線條
+ctx.strokeStyle = "blue"  # 設定線條顏色
+ctx.lineWidth = 2  # 設定線條寬度
+
+for line in lines:
+    start = line[0]
+    end = line[1]
+    ctx.beginPath()
+    ctx.moveTo(
+        offset_x + start[0] * pixel_scale,
+        offset_y + start[1] * pixel_scale
+    )
+    ctx.lineTo(
+        offset_x + end[0] * pixel_scale,
+        offset_y + end[1] * pixel_scale
+    )
+    ctx.stroke()
+
+# 將座標標示移動到紅點附近的適當位置
+ctx.font = "18px Arial"  # 放大字體大小 (原為14px)
+ctx.fillStyle = "red"
+ctx.fillText("(31, 50)", offset_x + 10, offset_y - 15)  # 在紅點的右上方標出座標</pre>
+<p><br/><br/></p>
+<p></p>
+<p></p>
 <!-- 導入 brython 程式庫 -->
 <p>
 <script src="/static/brython.js"></script>
@@ -1179,13 +1347,107 @@ ctx.fillText("(31, 50)", offset_x + 10, offset_y - 15)  # 在紅點的右上方�
 </script>
 </p>
 <p></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/OgfqL2e1MSc?si=w9tisidLTVpxLcy7" title="YouTube video player" width="560"></iframe></p>
-<h3>w16_exam3</h3>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/OgfqL2e1MSc?si=w9tisidLTVpxLcy7" title="YouTube video player" width="560"></iframe></p><h3>w16_exam3</h3>
 <p>題目: 請以自己的學號最後四碼作為下列繪圖的左上方點座標, (例如: 若學號最後四碼為 3932, 請將 (39, 32) 作為繪圖左上方點座標), 並以紅色文字標示出該點座標 (例如: (39, 32)), 之後請利用 pixel=2 的黑色直線, 自訂迷宮畫布大小, 直接在頁面畫出下列圖像, 並且利用紅色連續線段標示從上方入口, 走至下方出口的路線圖. 繪圖程式除了必須直接列在頁面 html 檔案外, 也請存入自己的 Gist 區域, 並在所完成的圖像下方, 以自選標題的 anchor 連結至 Gist, 讓使用者點擊該連結後, 可以在各自的 Brython 頁面中繪出下列圖像).</p>
 <p></p>
 <p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/0b5c3ede22da07e40801d66cad9b22d3/raw/71fc155f80d7c8994dbfd344cb99d2cea6225858/w16_exam3.py">解</a></p>
 <p></p>
 <p><a href="https://gist.githubusercontent.com/41323150/0b5c3ede22da07e40801d66cad9b22d3/raw/71fc155f80d7c8994dbfd344cb99d2cea6225858/w16_exam3.py">程式碼</a></p>
+<p></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+
+# 建立畫布
+canvas = html.CANVAS(width=600, height=600)  # 畫布大小增加兩倍
+brython_div = doc["brython_div1"]  # 將畫布放置於網頁中的指定 div
+brython_div &lt;= canvas
+
+# 取得 canvas 的 2D 繪圖上下文
+ctx = canvas.getContext("2d")
+
+# 每一格的像素大小
+pixel_scale = 100  # 每格的像素比例增加兩倍 (原為20，放大到40)
+
+# 定義原點 (31, 50) 作為起始點偏移
+offset_x = 31 * 2  # 放大兩倍
+offset_y = 50 * 2  # 放大兩倍
+
+# 定義迷宮線條 (外框)
+lines = [
+    ((0, 0), (1, 0)),
+    ((2, 0), (5, 0)),
+    ((5, 0), (5, 5)),
+    ((0, 5), (4, 5)),
+    ((4, 5), (4, 3)),
+    ((2, 3), (4, 3)),
+    ((1, 1), (1, 4)),
+    ((3, 3), (3, 2)),
+    # 第二條線
+    ((0, 0), (0, 5)),
+    ((0, 5), (4, 5)),
+    ((4, 4), (2, 4)),
+    ((2, 2), (2, 1)),
+    ((1, 1), (4, 1)),
+    ((4, 0), (4, 2)),
+]
+
+# 繪製迷宮線條 (外框)
+ctx.strokeStyle = "black"  # 設定外框顏色為黑色
+ctx.lineWidth = 2  # 設定線條寬度
+
+for line in lines:
+    start = line[0]
+    end = line[1]
+    ctx.beginPath()
+    ctx.moveTo(
+        offset_x + start[0] * pixel_scale,
+        offset_y + start[1] * pixel_scale
+    )
+    ctx.lineTo(
+        offset_x + end[0] * pixel_scale,
+        offset_y + end[1] * pixel_scale
+    )
+    ctx.stroke()
+
+# 定義過關路線
+solution_path = [
+    ((1.5, 0), (1.5, 0.5)),
+    ((0.5, 0.5), (1.5, 0.5)),
+    ((0.5, 0.5), (0.5, 4.5)),
+    ((0.5, 4.5), (1.5, 4.5)),
+    ((1.5, 4.5), (1.5, 2.5)),
+    ((1.5, 2.5), (2.5, 2.5)),
+    ((2.5, 2.5), (2.5, 1.5)),
+    ((2.5, 1.5), (3.5, 1.5)),
+    ((3.5, 1.5), (3.5, 2.5)),
+    ((3.5, 2.5), (4.5, 2.5)),
+    ((4.5, 2.5), (4.5, 5)),
+]
+
+# 繪製過關路線
+ctx.strokeStyle = "red"  # 設定過關路線顏色為紅色
+ctx.lineWidth = 3  # 過關路線稍粗一些，便於區分
+
+for line in solution_path:
+    start = line[0]
+    end = line[1]
+    ctx.beginPath()
+    ctx.moveTo(
+        offset_x + start[0] * pixel_scale,
+        offset_y + start[1] * pixel_scale
+    )
+    ctx.lineTo(
+        offset_x + end[0] * pixel_scale,
+        offset_y + end[1] * pixel_scale
+    )
+    ctx.stroke()
+
+# 將座標標示移動到紅點附近的適當位置
+ctx.font = "18px Arial"  # 放大字體大小 (原為14px)
+ctx.fillStyle = "blue"  # 設定座標文字顏色為藍色
+ctx.fillText("(31, 50)", offset_x + 10, offset_y - 15)  # 在紅點的右上方標出座標</pre>
+<p><br/><br/></p>
+<p></p>
 <p></p>
 <!-- 導入 brython 程式庫 -->
 <p>

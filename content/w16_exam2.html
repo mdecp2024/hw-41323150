@@ -149,6 +149,68 @@ img.add_border {
 <p></p>
 <p><a href="https://gist.githubusercontent.com/41323150/0b5c3ede22da07e40801d66cad9b22d3/raw/9245e45c4f5e2f84b7bd16964e48efc4ec8b04d1/w16_exam2.py">程式碼</a></p>
 <p></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+
+# 建立畫布
+canvas = html.CANVAS(width=600, height=600)  # 畫布大小增加兩倍
+brython_div = doc["brython_div1"]  # 將畫布放置於網頁中的指定 div
+brython_div &lt;= canvas
+
+# 取得 canvas 的 2D 繪圖上下文
+ctx = canvas.getContext("2d")
+
+# 每一格的像素大小
+pixel_scale = 100  # 每格的像素比例增加兩倍 (原為20，放大到40)
+
+# 定義原點 (31, 50) 作為起始點偏移
+offset_x = 31 * 2  # 放大兩倍
+offset_y = 50 * 2  # 放大兩倍
+
+# 定義迷宮線條
+lines = [
+    ((0, 0), (1, 0)),
+    ((2, 0), (5, 0)),
+    ((5, 0), (5, 5)),
+    ((0, 5), (4, 5)),
+    ((4, 5), (4, 3)),
+    ((2, 3), (4, 3)),
+    ((1, 1), (1, 4)),
+    ((3, 3), (3, 2)),
+    # 第二條線
+    ((0, 0), (0, 5)),
+    ((0, 5), (4, 5)),
+    ((4, 4), (2, 4)),
+    ((2, 2), (2, 1)),
+    ((1, 1), (4, 1)),
+    ((4, 0), (4, 2)),
+]
+
+# 繪製迷宮線條
+ctx.strokeStyle = "blue"  # 設定線條顏色
+ctx.lineWidth = 2  # 設定線條寬度
+
+for line in lines:
+    start = line[0]
+    end = line[1]
+    ctx.beginPath()
+    ctx.moveTo(
+        offset_x + start[0] * pixel_scale,
+        offset_y + start[1] * pixel_scale
+    )
+    ctx.lineTo(
+        offset_x + end[0] * pixel_scale,
+        offset_y + end[1] * pixel_scale
+    )
+    ctx.stroke()
+
+# 將座標標示移動到紅點附近的適當位置
+ctx.font = "18px Arial"  # 放大字體大小 (原為14px)
+ctx.fillStyle = "red"
+ctx.fillText("(31, 50)", offset_x + 10, offset_y - 15)  # 在紅點的右上方標出座標</pre>
+<p><br/><br/></p>
+<p></p>
+<p></p>
 <!-- 導入 brython 程式庫 -->
 <p>
 <script src="./../cmsimde/static/brython.js"></script>
@@ -227,8 +289,7 @@ ctx.fillText("(31, 50)", offset_x + 10, offset_y - 15)  # 在紅點的右上方�
 </script>
 </p>
 <p></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/OgfqL2e1MSc?si=w9tisidLTVpxLcy7" title="YouTube video player" width="560"></iframe></p>
-<br />w16_exam1 << <a href='w16_exam1.html'>Previous</a> <a href='w16_exam3.html'>Next</a> >> w16_exam3</div>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/OgfqL2e1MSc?si=w9tisidLTVpxLcy7" title="YouTube video player" width="560"></iframe></p><br />w16_exam1 << <a href='w16_exam1.html'>Previous</a> <a href='w16_exam3.html'>Next</a> >> w16_exam3</div>
         
     <!-- footer -->
       <div class="container">

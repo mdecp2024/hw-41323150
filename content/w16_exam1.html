@@ -146,7 +146,121 @@ img.add_border {
 <p>請以自己的學號最後四碼作為繪圖的座標原點, (例如: 若學號最後四碼為 3932, 請將 (39, 32) 作為繪圖座標原點), 並以 pixel=2 的黑色直線分別利用 Brython 繪圖, 標示出向右為正的 X 軸, 以及向下為正的 Y 軸, 並且利用文字標示出原點座標 (例如: (39, 32)), 之後請自選最左側圖形的起始點座標, 直接在頁面畫出下列圖像, 繪圖程式除了必須直接列在頁面 html 檔案外, 也請存入自己的 Gist 區域, 並在所完成的圖像下方, 以自選標題的 anchor 連結至 Gist, 讓使用者點擊該連結後, 可以在各自的 Brython 頁面中繪出下列圖像 (<a href="https://www.ccplusmedia.com/wp-content/uploads/2019/10/creative-ad_landscape3.jpg">圖片來源</a>).</p>
 <p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/0b5c3ede22da07e40801d66cad9b22d3/raw/ff21108a37e5ac48e7b6bf6002d3a07e609f91a9/w16_exam1.py">解</a></p>
 <p></p>
+<p></p>
 <p><a href="https://gist.githubusercontent.com/41323150/0b5c3ede22da07e40801d66cad9b22d3/raw/ff21108a37e5ac48e7b6bf6002d3a07e609f91a9/w16_exam1.py">程式碼</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
+import math
+
+# 初始化畫布
+def initialize_canvas(canvas_width=1000, canvas_height=400):
+    canvas = html.CANVAS(width=canvas_width, height=canvas_height)
+    document["brython_div1"] &lt;= canvas  # 加入到 HTML 容器中
+    ctx = canvas.getContext("2d")  # 獲取 2D 繪圖上下文
+    return canvas, ctx
+
+# 設定學號後四碼原點 (31, 50)
+origin_x, origin_y = 3.1 * 10, 5 * 10  # 原始座標
+
+# 初始化畫布
+canvas, ctx = initialize_canvas(1000, 400)
+
+# 繪製 X 軸和 Y 軸，只畫向右和向下的部分，並標註
+def draw_axes():
+    ctx.beginPath()
+    
+    # 繪製 X 軸向右延伸
+    ctx.moveTo(origin_x, origin_y)  # 原點
+    ctx.lineTo(canvas.width, origin_y)  # 向右延伸
+    ctx.lineTo(canvas.width - 10, origin_y - 5)  # X 軸箭頭
+    ctx.lineTo(canvas.width - 10, origin_y + 5)  # X 軸箭頭
+    ctx.strokeStyle = "black"
+    ctx.lineWidth = 2
+    ctx.stroke()
+
+    # 繪製 Y 軸向下延伸
+    ctx.beginPath()
+    ctx.moveTo(origin_x, origin_y)  # 原點
+    ctx.lineTo(origin_x, canvas.height)  # 向下延伸
+    ctx.lineTo(origin_x - 5, canvas.height - 10)  # Y 軸箭頭
+    ctx.lineTo(origin_x + 5, canvas.height - 10)  # Y 軸箭頭
+    ctx.stroke()
+
+    # 標註原點及方向
+    ctx.fillStyle = "black"
+    ctx.font = "12px Arial"
+    ctx.fillText(f"({31}, {50})", origin_x + 5, origin_y - 5)
+    ctx.fillText("正X", canvas.width - 40, origin_y - 10)  # X 軸正方向
+    ctx.fillText("正Y", origin_x + 10, canvas.height - 10)  # Y 軸正方向
+
+# 繪製六邊形
+def draw_hexagon(x, y, size, color):
+    ctx.beginPath()
+    for i in range(6):
+        angle = (i * 60) * (math.pi / 180)
+        px = x + size * math.cos(angle)
+        py = y + size * math.sin(angle)
+        if i == 0:
+            ctx.moveTo(px, py)
+        else:
+            ctx.lineTo(px, py)
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+
+# 繪製菱形
+def draw_diamond(x, y, width, height, color):
+    ctx.beginPath()
+    ctx.moveTo(x, y - height / 2)
+    ctx.lineTo(x + width / 2, y)
+    ctx.lineTo(x, y + height / 2)
+    ctx.lineTo(x - width / 2, y)
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+
+# 繪製三角形
+def draw_triangle(x, y, size, color):
+    ctx.beginPath()
+    ctx.moveTo(x, y - size)  # 頂點
+    ctx.lineTo(x - size, y + size)  # 左下角
+    ctx.lineTo(x + size, y + size)  # 右下角
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+
+# 繪製圓形
+def draw_circle(x, y, radius, color):
+    ctx.beginPath()
+    ctx.arc(x, y, radius, 0, 2 * math.pi)
+    ctx.fillStyle = color
+    ctx.fill()
+
+# 繪製矩形
+def draw_rectangle(x, y, width, height, color):
+    ctx.beginPath()
+    ctx.rect(x, y, width, height)
+    ctx.fillStyle = color
+    ctx.fill()
+
+# 繪製長條形
+def draw_bar(x, y, width, height, color):
+    draw_rectangle(x, y, width, height, color)
+
+# 繪製圖形
+def draw_shapes():
+    # 繪製圖形時調整 y 坐標，使其在原點下方
+    draw_hexagon(origin_x + 50, origin_y + 100, 40, "orange")  # 六邊形
+    draw_diamond(origin_x + 150, origin_y + 100, 50, 80, "teal")  # 菱形
+    draw_triangle(origin_x + 250, origin_y + 100, 40, "cyan")  # 三角形
+    draw_circle(origin_x + 350, origin_y + 100, 40, "pink")  # 圓形
+    draw_rectangle(origin_x + 450, origin_y + 70, 60, 60, "yellow")  # 矩形
+    draw_bar(origin_x + 550, origin_y + 85, 100, 30, "blue")  # 長條形
+
+# 執行繪圖
+draw_axes()
+draw_shapes()</pre>
+<p><br/><br/></p>
+<p></p>
 <p></p>
 <!-- 導入 brython 程式庫 -->
 <p>

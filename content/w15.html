@@ -144,102 +144,91 @@ img.add_border {
     <div id="tipue_search_content">w14_ex << <a href='w14_ex.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w15</h1>
 <div>題目1:</div>
 <div><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/1302cf8b3ac8250f9e1b9714343fe25f/raw/9c0fc66b833d37c53b6f3c95db5afe559e586134/w15-1.py">從 1 累加到 100</a></div>
-<div></div>
+<div>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義函數來計算和顯示結果
+def calculate_sum():
+    total = 0
+    for i in range(1, 101):  # 從 1 遍歷到 100
+        total += i
+    print(f"總和是: {total}")  # 在控制台顯示結果
+
+# 呼叫函數執行
+calculate_sum()</pre>
+</div>
+<p></p>
 <div>題目2:</div>
 <div><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/1302cf8b3ac8250f9e1b9714343fe25f/raw/41a67c3fb5b64ab5796045bb6e74d786a308db75/w15-2.py">addto</a></div>
 <div></div>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def addto(start, end):
+    """
+    計算從 start 到 end 的整數總和。
+    
+    參數:
+    - start: 起始值 (整數)
+    - end: 結束值 (整數)
+    
+    回傳:
+    - 總和 (整數)
+    """
+    total = sum(range(start, end + 1))  # 使用內建的 sum 函數
+    return total
+
+# 呼叫函式並印出結果
+result = addto(1, 100)
+print(f"累加的結果是: {result}")</pre>
+<p></p>
+<p></p>
 <div>題目3:</div>
 <div><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/1302cf8b3ac8250f9e1b9714343fe25f/raw/41a67c3fb5b64ab5796045bb6e74d786a308db75/w15_hw-3.py">add_only_even</a></div>
 <div></div>
-<div></div>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def add_only_even(start, end):
+    """
+    計算從 start 到 end 之間所有偶數的總和。
+    
+    參數:
+    - start: 起始值 (整數)
+    - end: 結束值 (整數)
+    
+    回傳:
+    - 偶數總和 (整數)
+    """
+    # 使用範圍產生偶數並計算總和
+    total = sum(i for i in range(start, end + 1) if i % 2 == 0)
+    return total
+
+# 呼叫函式並印出結果
+result = add_only_even(1, 100)
+print(f"累加的偶數結果是: {result}")</pre>
+<p></p>
 <div>題目4:</div>
 <div><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/1302cf8b3ac8250f9e1b9714343fe25f/raw/4e7b58735c5efcc4d2ffd3b9084ccae4ef5b5900/w15_hw-4.py">add_avoid_8</a></div>
 <div></div>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def add_avoid_8(start, end):
+    """計算從 start 到 end 的累加結果，避開包含 '8' 的數字以及基數（奇數）"""
+    valid_numbers = [x for x in range(start, end + 1) if '8' not in str(x) and x % 2 == 0]
+    print("符合條件的數字:", valid_numbers)  # 打印符合條件的數字，看看哪些數字被選中
+    return sum(valid_numbers)
+
+# 測試函式
+result = add_avoid_8(1, 100)
+print(f"從 1 到 100 的累加總和（避開包含 '8' 的數字以及基數）是：{result}")</pre>
+<p></p>
 <div>補充:</div>
 <div><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/1302cf8b3ac8250f9e1b9714343fe25f/raw/e859237185afa51440f92b7d4209880ef0b00100/w15_-5.py">去除3跟8</a></div>
-<p>
-<script type="text/python3">
-from browser import html
-from browser import document as doc
-import random
-import math
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def calculate_sum():
+    total = 0
+    valid_numbers = []  # 用來存儲符合條件的數字
+    for i in range(1, 101):  # 從 1 遍歷到 100
+        # 檢查數字中是否包含 '8' 或 '3'
+        if '8' not in str(i) and '3' not in str(i):
+            total += i  # 累加符合條件的數字
+            valid_numbers.append(i)  # 把符合條件的數字加到列表中
+    print(f"符合條件的數字是: {valid_numbers}")  # 顯示符合條件的數字
+    print(f"總和是: {total}")  # 顯示最終總和
 
-# 定義一個函式來初始化畫布
-def initialize_canvas(canvas_width=400, canvas_height=400, id="brython_div1"):
-    """
-    初始化畫布，創建一個指定大小的 Canvas 元素，並將其加到 HTML 文件中。
-    返回畫布元素和它的 2D 繪圖上下文。
-    """
-    canvas = html.CANVAS(width=canvas_width, height=canvas_height)
-    brython_div = doc[id]
-    brython_div <= canvas
-    ctx = canvas.getContext("2d")
-    return canvas, ctx
-
-# 定義一個隨機顏色生成函式
-def random_color_generator():
-    r = random.randint(0, 255)
-    g = random.randint(0, 255)
-    b = random.randint(0, 255)
-    return f"rgb({r}, {g}, {b})"
-
-# 判斷點是否在圓內
-def is_point_in_circle(px, py, cx, cy, r):
-    return (px - cx) ** 2 + (py - cy) ** 2 <= r ** 2
-
-# 檢查所有圓是否有重疊
-def ensure_no_isolated_circles(circles):
-    overlap = [False] * len(circles)
-    for i in range(len(circles)):
-        for j in range(i + 1, len(circles)):
-            cx1, cy1, r1 = circles[i]
-            cx2, cy2, r2 = circles[j]
-            distance = math.sqrt((cx1 - cx2) ** 2 + (cy1 - cy2) ** 2)
-            if distance <= r1 + r2:  # 判斷是否有重疊
-                overlap[i] = True
-                overlap[j] = True
-    return all(overlap)
-
-# 使用者設定的多個圓，並進行掃描線填充
-def draw_circles():
-    canvas, ctx = initialize_canvas(400, 400)
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-    color_dict = {}
-
-    # 隨機生成 5 到 10 個圓，確保沒有圓是孤立的
-    while True:
-        num_circles = random.randint(5, 10)
-        circles = [
-            (random.randint(50, 350), random.randint(50, 350), random.randint(50, 100))
-            for _ in range(num_circles)
-        ]
-        if ensure_no_isolated_circles(circles):
-            break
-
-    for py in range(0, canvas.height):
-        for px in range(0, canvas.width):
-            overlapping_indices = []
-
-            for i, (cx, cy, r) in enumerate(circles):
-                if is_point_in_circle(px, py, cx, cy, r):
-                    overlapping_indices.append(i)
-
-            if overlapping_indices:
-                overlap_key = "_".join(map(str, sorted(overlapping_indices)))
-                if overlap_key not in color_dict:
-                    color_dict[overlap_key] = random_color_generator()
-                current_color = color_dict[overlap_key]
-            else:
-                current_color = "white"
-
-            ctx.fillStyle = current_color
-            ctx.fillRect(px, py, 1, 1)
-
-draw_circles()
-</script>
-</p>
-<br />w14_ex << <a href='w14_ex.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
+# 呼叫函數執行
+calculate_sum()</pre>
+<p><br/><br/></p><br />w14_ex << <a href='w14_ex.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
         
     <!-- footer -->
       <div class="container">
