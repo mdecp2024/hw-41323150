@@ -47,7 +47,8 @@ for i in range(1,10):
     print(i,a)</pre>
 <p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/95fc51c6b7712763a5f856bde9d9206f/raw/c3fa5ecc6c5a32f14a963ba8534495d79953057c/w7.py">完成品</a><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MtO6z1MQjEA?si=cfd3uAi7KpArf2UU" title="YouTube video player" width="560"></iframe></p>
 <p></p>
-<p></p><h2>w10</h2>
+<p></p>
+<h2>w10</h2>
 <p><strong></strong>題目一</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/RMxZ2e3ccp0?si=nQIryoAe9aOwuyoc" title="YouTube video player" width="560"></iframe></p>
 <p></p>
@@ -59,7 +60,8 @@ for i in range(1,10):
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/27-p-AzKs6o?si=FkvIoWeU5gXdAULI" title="YouTube video player" width="560"></iframe></p>
 <p></p>
 <p></p>
-<p></p><h2>w11_hw</h2>
+<p></p>
+<h2>w11_hw</h2>
 <p>作業一</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/yBRYYVYZic8?si=o_8Pc9Vq57v4LRh_" title="YouTube video player" width="560"></iframe></p>
 <p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/e821869c24e0fc5e8590ba925e2295e4/raw/68020773304b74ea116a66edbe7c68d193a31b42/w11-1.py">解:</a></p>
@@ -206,9 +208,9 @@ for i in range(n):  #對於每一行
 <p><span>說明:用到了for...loop，else的語法，操作列表list進行迴圈處理，使用if...else來檢查條件成立，來判斷是不是我們想要的東西。</span></p>
 <p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/e821869c24e0fc5e8590ba925e2295e4/raw/7df72c81e1de8e172cc137420e0b9394a2007f06/w12_hw.py">練習10</a></p>
 <p><span>說明:用for迴圈查看list列表並根據是否條件成立並進行輸出。</span></p>
-<p><span></span></p>
-<p><span>心得</span></p>
-<h2>w13_hw</h2>
+<p><span> </span></p>
+<h2>w13</h2>
+<h3>w13_ai</h3>
 <p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/5a09a826c0d00aba5a336335c7a87747/raw/0daec87ebf43940eb68cec3e7c720e513c01056a/w13_hw.py">解</a></p>
 <p></p>
 <p></p>
@@ -478,6 +480,209 @@ ctx.beginPath()
 ctx.moveTo(60, 60)
 ctx.lineTo(360,360)
 ctx.stroke()
+</script>
+</p>
+<p></p>
+<h3>w13_hw</h3>
+<p></p>
+<p><a href="https://mdecp2024.github.io/hw-41323150/content/Brython.html?src=https://gist.githubusercontent.com/41323150/5a09a826c0d00aba5a336335c7a87747/raw/282f2ec992c95e746a573800dcb7c92213e88325/w13_hw.py">解</a></p>
+<p></p>
+<p><a href="https://gist.githubusercontent.com/41323150/5a09a826c0d00aba5a336335c7a87747/raw/282f2ec992c95e746a573800dcb7c92213e88325/w13_hw.py">程式碼</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+
+# 設置畫布
+canvas = html.CANVAS(width=600, height=600)
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 1
+
+# 畫兩個矩形 (紅色邊框)
+ctx.strokeStyle = 'red'
+ctx.beginPath()
+ctx.rect(100, 100, 200, 200)
+ctx.rect(200, 200, 200, 200)
+ctx.stroke()
+
+# 畫兩個圓形 (黑色)
+ctx.strokeStyle = 'black'
+ctx.beginPath()
+ctx.arc(200, 200, 141.4, 0, 2 * 3.14)
+ctx.stroke()
+ctx.beginPath()
+ctx.arc(300, 300, 141.4, 0, 2 * 3.14)
+ctx.stroke()
+
+# 計算點的布林值屬性
+def calculate_point_properties(x, y):
+    in_circle1 = (x - 200) ** 2 + (y - 200) ** 2 &lt; 141.4 ** 2
+    in_circle2 = (x - 300) ** 2 + (y - 300) ** 2 &lt; 141.4 ** 2
+    in_square1 = 100 &lt;= x &lt;= 300 and 100 &lt;= y &lt;= 300
+    in_square2 = 200 &lt;= x &lt;= 400 and 200 &lt;= y &lt;= 400
+    return {
+        "in_circle1": in_circle1,
+        "in_circle2": in_circle2,
+        "in_square1": in_square1,
+        "in_square2": in_square2,
+    }
+
+# 根據布林值屬性判定區域
+def get_region_via_conditions(properties):
+    regions = []
+
+    if properties["in_circle1"] and properties["in_square1"]:
+        regions.append("circle1_in_square1")  # 第一個圓內且在第一個正方形內
+    elif properties["in_circle1"]:
+        regions.append("circle1_outside_square1")  # 第一個圓內但不在正方形內
+
+    if properties["in_circle2"] and properties["in_square2"]:
+        regions.append("circle2_in_square2")  # 第二個圓內且在第二個正方形內
+    elif properties["in_circle2"]:
+        regions.append("circle2_outside_square2")  # 第二個圓內但不在正方形內
+
+    if not properties["in_circle1"] and not properties["in_circle2"]:
+        regions.append("outside_circles")  # 不在兩個圓內
+
+    return regions
+
+# 根據區域決定顏色
+def get_region_color_by_regions(regions):
+    if "circle1_in_square1" in regions:
+        return "green"
+    if "circle1_outside_square1" in regions:
+        return "red"
+    if "circle2_in_square2" in regions:
+        return "blue"
+    if "circle2_outside_square2" in regions:
+        return "yellow"
+    if "outside_circles" in regions:
+        return "lightgreen"  # 圓外部區域
+    return None
+
+# 掃描畫布並著色
+def scan_and_draw():
+    for y in range(0, canvas.height, 10):  # 每10像素掃描一次
+        for x in range(0, canvas.width, 10):
+            properties = calculate_point_properties(x, y)
+            regions = get_region_via_conditions(properties)
+            color = get_region_color_by_regions(regions)
+            if color:
+                ctx.fillStyle = color
+                ctx.beginPath()
+                ctx.arc(x + 5, y + 5, 5, 0, 2 * 3.14)
+                ctx.fill()
+
+# 開始掃描和標示
+scan_and_draw()</pre>
+<p><br/><br/></p>
+<p></p>
+<p></p>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+
+# 設置畫布
+canvas = html.CANVAS(width=600, height=600)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 1
+
+# 畫兩個矩形 (紅色邊框)
+ctx.strokeStyle = 'red'
+ctx.beginPath()
+ctx.rect(100, 100, 200, 200)
+ctx.rect(200, 200, 200, 200)
+ctx.stroke()
+
+# 畫兩個圓形 (黑色)
+ctx.strokeStyle = 'black'
+ctx.beginPath()
+ctx.arc(200, 200, 141.4, 0, 2 * 3.14)
+ctx.stroke()
+ctx.beginPath()
+ctx.arc(300, 300, 141.4, 0, 2 * 3.14)
+ctx.stroke()
+
+# 計算點的布林值屬性
+def calculate_point_properties(x, y):
+    in_circle1 = (x - 200) ** 2 + (y - 200) ** 2 < 141.4 ** 2
+    in_circle2 = (x - 300) ** 2 + (y - 300) ** 2 < 141.4 ** 2
+    in_square1 = 100 <= x <= 300 and 100 <= y <= 300
+    in_square2 = 200 <= x <= 400 and 200 <= y <= 400
+    return {
+        "in_circle1": in_circle1,
+        "in_circle2": in_circle2,
+        "in_square1": in_square1,
+        "in_square2": in_square2,
+    }
+
+# 根據布林值屬性判定區域
+def get_region_via_conditions(properties):
+    regions = []
+
+    if properties["in_circle1"] and properties["in_square1"]:
+        regions.append("circle1_in_square1")  # 第一個圓內且在第一個正方形內
+    elif properties["in_circle1"]:
+        regions.append("circle1_outside_square1")  # 第一個圓內但不在正方形內
+
+    if properties["in_circle2"] and properties["in_square2"]:
+        regions.append("circle2_in_square2")  # 第二個圓內且在第二個正方形內
+    elif properties["in_circle2"]:
+        regions.append("circle2_outside_square2")  # 第二個圓內但不在正方形內
+
+    if not properties["in_circle1"] and not properties["in_circle2"]:
+        regions.append("outside_circles")  # 不在兩個圓內
+
+    return regions
+
+# 根據區域決定顏色
+def get_region_color_by_regions(regions):
+    if "circle1_in_square1" in regions:
+        return "green"
+    if "circle1_outside_square1" in regions:
+        return "red"
+    if "circle2_in_square2" in regions:
+        return "blue"
+    if "circle2_outside_square2" in regions:
+        return "yellow"
+    if "outside_circles" in regions:
+        return "lightgreen"  # 圓外部區域
+    return None
+
+# 掃描畫布並著色
+def scan_and_draw():
+    for y in range(0, canvas.height, 10):  # 每10像素掃描一次
+        for x in range(0, canvas.width, 10):
+            properties = calculate_point_properties(x, y)
+            regions = get_region_via_conditions(properties)
+            color = get_region_color_by_regions(regions)
+            if color:
+                ctx.fillStyle = color
+                ctx.beginPath()
+                ctx.arc(x + 5, y + 5, 5, 0, 2 * 3.14)
+                ctx.fill()
+
+# 開始掃描和標示
+scan_and_draw()
 </script>
 </p><h2>w14_ex</h2>
 <p>3圓相切</p>
@@ -843,7 +1048,8 @@ draw_circles()
 </script>
 </p>
 <div id="brython_div1"></div>
-<div></div><h2>w15</h2>
+<div></div>
+<h2>w15</h2>
 <div>題目1:</div>
 <div><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/1302cf8b3ac8250f9e1b9714343fe25f/raw/9c0fc66b833d37c53b6f3c95db5afe559e586134/w15-1.py">從 1 累加到 100</a></div>
 <div>
@@ -930,7 +1136,8 @@ print(f"從 1 到 100 的累加總和（避開包含 '8' 的數字以及基數�
 
 # 呼叫函數執行
 calculate_sum()</pre>
-<p><br/><br/></p><h1>HW 2</h1>
+<p><br/><br/></p>
+<h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
 <hr/>
@@ -1198,7 +1405,8 @@ draw_shapes()
 </p>
 <p></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/p7RboVzgEWM?si=HaW2HFLvzRZYDsC2" title="YouTube video player" width="560"></iframe></p>
-<p></p><h3>w16_exam2</h3>
+<p></p>
+<h3>w16_exam2</h3>
 <p></p>
 <p>題目: 請以自己的學號最後四碼作為下列繪圖的左上方點座標, (例如: 若學號最後四碼為 3932, 請將 (39, 32) 作為繪圖左上方點座標), 並以紅色文字標示出該點座標 (例如: (39, 32)), 之後請利用 pixel=2 的藍色直線, 自訂迷宮畫布大小, 直接在頁面畫出下列圖像, 繪圖程式除了必須直接列在頁面 html 檔案外, 也請存入自己的 Gist 區域, 並在所完成的圖像下方, 以自選標題的 anchor 連結至 Gist, 讓使用者點擊該連結後, 可以在各自的 Brython 頁面中繪出下列圖像).</p>
 <p></p>
@@ -1346,7 +1554,8 @@ ctx.fillText("(31, 50)", offset_x + 10, offset_y - 15)  # 在紅點的右上方�
 </script>
 </p>
 <p></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/OgfqL2e1MSc?si=w9tisidLTVpxLcy7" title="YouTube video player" width="560"></iframe></p><h3>w16_exam3</h3>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/OgfqL2e1MSc?si=w9tisidLTVpxLcy7" title="YouTube video player" width="560"></iframe></p>
+<h3>w16_exam3</h3>
 <p>題目: 請以自己的學號最後四碼作為下列繪圖的左上方點座標, (例如: 若學號最後四碼為 3932, 請將 (39, 32) 作為繪圖左上方點座標), 並以紅色文字標示出該點座標 (例如: (39, 32)), 之後請利用 pixel=2 的黑色直線, 自訂迷宮畫布大小, 直接在頁面畫出下列圖像, 並且利用紅色連續線段標示從上方入口, 走至下方出口的路線圖. 繪圖程式除了必須直接列在頁面 html 檔案外, 也請存入自己的 Gist 區域, 並在所完成的圖像下方, 以自選標題的 anchor 連結至 Gist, 讓使用者點擊該連結後, 可以在各自的 Brython 頁面中繪出下列圖像).</p>
 <p></p>
 <p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/0b5c3ede22da07e40801d66cad9b22d3/raw/71fc155f80d7c8994dbfd344cb99d2cea6225858/w16_exam3.py">解</a></p>
@@ -1560,7 +1769,8 @@ ctx.fillText("(31, 50)", offset_x + 10, offset_y - 15)  # 在紅點的右上方�
 </p>
 <p></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/NGR33pmq-sI?si=vIlbTzukR700WlDO" title="YouTube video player" width="560"></iframe></p>
-<p></p><h1>HW 3</h1>
+<p></p>
+<h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
 <p>完成上述流程整理後, 請將 HW3 自評分數輸入 cp2024 自評表單中.</p>

@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,10 +141,280 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">HW 2 << <a href='HW 2.html'>Previous</a> <a href='w16_exam1.html'>Next</a> >> w16_exam1<br /><h1>HW 2 Exam</h1>
-<p>每六人為一組進行協同程式練習</p>
-<p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 2 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<br />HW 2 << <a href='HW 2.html'>Previous</a> <a href='w16_exam1.html'>Next</a> >> w16_exam1</div>
+    <div id="tipue_search_content">w13 << <a href='w13.html'>Previous</a> <a href='w13_hw.html'>Next</a> >> w13_hw<br /><h1>w13_ai</h1>
+<p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/5a09a826c0d00aba5a336335c7a87747/raw/0daec87ebf43940eb68cec3e7c720e513c01056a/w13_hw.py">解</a></p>
+<p></p>
+<p></p>
+<p><a href="https://gist.githubusercontent.com/41323150/5a09a826c0d00aba5a336335c7a87747/raw/dda8c14567e76fed24d075c64174aaa6fb9db7a9/w13_hw.py">程式碼</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+import math
+
+canvas = html.CANVAS(width=500, height=500)
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 4
+
+# 混色的
+ctx.globalCompositeOperation = "screem"
+
+# 黑邊圓*2 (每個畫四個邊邊)
+ctx.strokeStyle = 'black'
+
+# 第一個圓
+ctx.beginPath()
+ctx.arc(160, 160, 141, 0.25 * math.pi, 0.75 * math.pi)
+ctx.fillStyle = "Coral"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(160, 160, 141, 0.75 * math.pi, 1.25 * math.pi)
+ctx.fillStyle = "MediumPurple"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(160, 160, 141, 1.25 * math.pi, 1.75 * math.pi)
+ctx.fillStyle = "LimeGreen"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(160, 160, 141, 1.75 * math.pi, 0.25 * math.pi)
+ctx.fillStyle = "Beige"  
+ctx.fill()
+ctx.stroke()
+
+# 第二個圓
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.25 * math.pi, 1.75 * math.pi)
+ctx.fillStyle = "SkyBlue"
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.75 * math.pi, 0.25 * math.pi)
+ctx.fillStyle = "Crimson"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.25 * math.pi, 0.75 * math.pi)
+ctx.fillStyle = "LightCyan"
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.75 * math.pi, 1.25 * math.pi)
+ctx.fillStyle = "Gold"
+ctx.fill()
+ctx.stroke()
+
+# 紅方形*2 (4個三角形)
+ctx.strokeStyle = 'red'
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(60, 260)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "ForestGreen"
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(260, 60)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "DarkSlateBlue"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(360, 160)
+ctx.lineTo(360, 360)
+ctx.fillStyle = "LightYellow" 
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(160, 360)
+ctx.lineTo(360, 360)
+ctx.fillStyle = "PaleGreen"  
+ctx.fill()
+ctx.stroke()
+
+# 重疊的小方型
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(160, 260)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "SteelBlue"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(260, 160)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "DarkOrchid"
+ctx.fill()
+ctx.stroke()
+
+# 藍斜線
+ctx.strokeStyle = 'blue'
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(360,360)
+ctx.stroke()</pre>
+<p></p>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+    brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+import math
+
+canvas = html.CANVAS(width=500, height=500)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 4
+
+# 混色的
+ctx.globalCompositeOperation = "screem"
+
+# 黑邊圓*2 (每個畫四個邊邊)
+ctx.strokeStyle = 'black'
+
+# 第一個圓
+ctx.beginPath()
+ctx.arc(160, 160, 141, 0.25 * math.pi, 0.75 * math.pi)
+ctx.fillStyle = "Coral"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(160, 160, 141, 0.75 * math.pi, 1.25 * math.pi)
+ctx.fillStyle = "MediumPurple"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(160, 160, 141, 1.25 * math.pi, 1.75 * math.pi)
+ctx.fillStyle = "LimeGreen"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(160, 160, 141, 1.75 * math.pi, 0.25 * math.pi)
+ctx.fillStyle = "Beige"  
+ctx.fill()
+ctx.stroke()
+
+# 第二個圓
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.25 * math.pi, 1.75 * math.pi)
+ctx.fillStyle = "SkyBlue"
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.75 * math.pi, 0.25 * math.pi)
+ctx.fillStyle = "Crimson"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.25 * math.pi, 0.75 * math.pi)
+ctx.fillStyle = "LightCyan"
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.75 * math.pi, 1.25 * math.pi)
+ctx.fillStyle = "Gold"
+ctx.fill()
+ctx.stroke()
+
+# 紅方形*2 (4個三角形)
+ctx.strokeStyle = 'red'
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(60, 260)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "SteelBlue"
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(260, 60)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "DarkSlateBlue"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(360, 160)
+ctx.lineTo(360, 360)
+ctx.fillStyle = "LightYellow" 
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(160, 360)
+ctx.lineTo(360, 360)
+ctx.fillStyle = "PaleGreen"  
+ctx.fill()
+ctx.stroke()
+
+# 重疊的小方型
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(160, 260)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "ForestGreen"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(260, 160)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "DarkOrchid"
+ctx.fill()
+ctx.stroke()
+
+# 藍斜線
+ctx.strokeStyle = 'blue'
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(360,360)
+ctx.stroke()
+</script>
+</p>
+<p></p>
+<br />w13 << <a href='w13.html'>Previous</a> <a href='w13_hw.html'>Next</a> >> w13_hw</div>
         
     <!-- footer -->
       <div class="container">

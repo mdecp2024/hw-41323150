@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li><a href='HW 1 Exam.html'>HW 1 Exam</a><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li><a href='w11_hw.html'>w11_hw</a><li class='has-children'><a href='w12.html'>w12</a><ul class='dropdown'><li><a href='w12_hw.html'>w12_hw</a></li></ul><li><a href='w13_hw.html'>w13_hw</a><li><a href='w14_ex.html'>w14_ex</a><li><a href='w15.html'>w15</a></li></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li class='has-children'><a href='HW 2 Exam.html'>HW 2 Exam</a><ul class='dropdown'><li><a href='w16_exam1.html'>w16_exam1</a><li><a href='w16_exam2.html'>w16_exam2</a><li><a href='w16_exam3.html'>w16_exam3</a></li></li></ul></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li><a href='HW 3 Exam.html'>HW 3 Exam</a></li></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li><a href='HW 1 Exam.html'>HW 1 Exam</a><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li><a href='w11_hw.html'>w11_hw</a><li class='has-children'><a href='w12.html'>w12</a><ul class='dropdown'><li><a href='w12_hw.html'>w12_hw</a></li></ul><li class='has-children'><a href='w13.html'>w13</a><ul class='dropdown'><li><a href='w13_ai.html'>w13_ai</a><li><a href='w13_hw.html'>w13_hw</a></li></ul><li><a href='w14_ex.html'>w14_ex</a><li><a href='w15.html'>w15</a></li></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li class='has-children'><a href='HW 2 Exam.html'>HW 2 Exam</a><ul class='dropdown'><li><a href='w16_exam1.html'>w16_exam1</a><li><a href='w16_exam2.html'>w16_exam2</a><li><a href='w16_exam3.html'>w16_exam3</a></li></li></ul></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li><a href='HW 3 Exam.html'>HW 3 Exam</a></li></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,135 +141,101 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w12_hw << <a href='w12_hw.html'>Previous</a> <a href='w14_ex.html'>Next</a> >> w14_ex<br /><h1>w13_hw</h1>
-<p><a href="https://ubiquitous-guacamole-7vpvrxq567rr3rx6j-8081.app.github.dev/content/Brython.html?src=https://gist.githubusercontent.com/41323150/5a09a826c0d00aba5a336335c7a87747/raw/0daec87ebf43940eb68cec3e7c720e513c01056a/w13_hw.py">解</a></p>
+    <div id="tipue_search_content">w13_ai << <a href='w13_ai.html'>Previous</a> <a href='w14_ex.html'>Next</a> >> w14_ex<br /><h1>w13_hw</h1>
 <p></p>
+<p><a href="https://mdecp2024.github.io/hw-41323150/content/Brython.html?src=https://gist.githubusercontent.com/41323150/5a09a826c0d00aba5a336335c7a87747/raw/282f2ec992c95e746a573800dcb7c92213e88325/w13_hw.py">解</a></p>
 <p></p>
-<p><a href="https://gist.githubusercontent.com/41323150/5a09a826c0d00aba5a336335c7a87747/raw/dda8c14567e76fed24d075c64174aaa6fb9db7a9/w13_hw.py">程式碼</a></p>
+<p><a href="https://gist.githubusercontent.com/41323150/5a09a826c0d00aba5a336335c7a87747/raw/282f2ec992c95e746a573800dcb7c92213e88325/w13_hw.py">程式碼</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
 from browser import document as doc
-import math
 
-canvas = html.CANVAS(width=500, height=500)
+# 設置畫布
+canvas = html.CANVAS(width=600, height=600)
 brython_div = doc["brython_div1"]
 brython_div &lt;= canvas
 
 ctx = canvas.getContext("2d")
-ctx.lineWidth = 4
+ctx.lineWidth = 1
 
-# 混色的
-ctx.globalCompositeOperation = "screem"
-
-# 黑邊圓*2 (每個畫四個邊邊)
-ctx.strokeStyle = 'black'
-
-# 第一個圓
-ctx.beginPath()
-ctx.arc(160, 160, 141, 0.25 * math.pi, 0.75 * math.pi)
-ctx.fillStyle = "Coral"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(160, 160, 141, 0.75 * math.pi, 1.25 * math.pi)
-ctx.fillStyle = "MediumPurple"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(160, 160, 141, 1.25 * math.pi, 1.75 * math.pi)
-ctx.fillStyle = "LimeGreen"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(160, 160, 141, 1.75 * math.pi, 0.25 * math.pi)
-ctx.fillStyle = "Beige"  
-ctx.fill()
-ctx.stroke()
-
-# 第二個圓
-ctx.beginPath()
-ctx.arc(260, 260, 141, 1.25 * math.pi, 1.75 * math.pi)
-ctx.fillStyle = "SkyBlue"
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(260, 260, 141, 1.75 * math.pi, 0.25 * math.pi)
-ctx.fillStyle = "Crimson"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(260, 260, 141, 0.25 * math.pi, 0.75 * math.pi)
-ctx.fillStyle = "LightCyan"
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(260, 260, 141, 0.75 * math.pi, 1.25 * math.pi)
-ctx.fillStyle = "Gold"
-ctx.fill()
-ctx.stroke()
-
-# 紅方形*2 (4個三角形)
+# 畫兩個矩形 (紅色邊框)
 ctx.strokeStyle = 'red'
 ctx.beginPath()
-ctx.moveTo(60, 60)
-ctx.lineTo(60, 260)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "ForestGreen"
-ctx.fill()
+ctx.rect(100, 100, 200, 200)
+ctx.rect(200, 200, 200, 200)
 ctx.stroke()
 
+# 畫兩個圓形 (黑色)
+ctx.strokeStyle = 'black'
 ctx.beginPath()
-ctx.moveTo(60, 60)
-ctx.lineTo(260, 60)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "DarkSlateBlue"  
-ctx.fill()
+ctx.arc(200, 200, 141.4, 0, 2 * 3.14)
+ctx.stroke()
+ctx.beginPath()
+ctx.arc(300, 300, 141.4, 0, 2 * 3.14)
 ctx.stroke()
 
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(360, 160)
-ctx.lineTo(360, 360)
-ctx.fillStyle = "LightYellow" 
-ctx.fill()
-ctx.stroke()
+# 計算點的布林值屬性
+def calculate_point_properties(x, y):
+    in_circle1 = (x - 200) ** 2 + (y - 200) ** 2 &lt; 141.4 ** 2
+    in_circle2 = (x - 300) ** 2 + (y - 300) ** 2 &lt; 141.4 ** 2
+    in_square1 = 100 &lt;= x &lt;= 300 and 100 &lt;= y &lt;= 300
+    in_square2 = 200 &lt;= x &lt;= 400 and 200 &lt;= y &lt;= 400
+    return {
+        "in_circle1": in_circle1,
+        "in_circle2": in_circle2,
+        "in_square1": in_square1,
+        "in_square2": in_square2,
+    }
 
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(160, 360)
-ctx.lineTo(360, 360)
-ctx.fillStyle = "PaleGreen"  
-ctx.fill()
-ctx.stroke()
+# 根據布林值屬性判定區域
+def get_region_via_conditions(properties):
+    regions = []
 
-# 重疊的小方型
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(160, 260)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "SteelBlue"  
-ctx.fill()
-ctx.stroke()
+    if properties["in_circle1"] and properties["in_square1"]:
+        regions.append("circle1_in_square1")  # 第一個圓內且在第一個正方形內
+    elif properties["in_circle1"]:
+        regions.append("circle1_outside_square1")  # 第一個圓內但不在正方形內
 
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(260, 160)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "DarkOrchid"
-ctx.fill()
-ctx.stroke()
+    if properties["in_circle2"] and properties["in_square2"]:
+        regions.append("circle2_in_square2")  # 第二個圓內且在第二個正方形內
+    elif properties["in_circle2"]:
+        regions.append("circle2_outside_square2")  # 第二個圓內但不在正方形內
 
-# 藍斜線
-ctx.strokeStyle = 'blue'
-ctx.beginPath()
-ctx.moveTo(60, 60)
-ctx.lineTo(360,360)
-ctx.stroke()</pre>
+    if not properties["in_circle1"] and not properties["in_circle2"]:
+        regions.append("outside_circles")  # 不在兩個圓內
+
+    return regions
+
+# 根據區域決定顏色
+def get_region_color_by_regions(regions):
+    if "circle1_in_square1" in regions:
+        return "green"
+    if "circle1_outside_square1" in regions:
+        return "red"
+    if "circle2_in_square2" in regions:
+        return "blue"
+    if "circle2_outside_square2" in regions:
+        return "yellow"
+    if "outside_circles" in regions:
+        return "lightgreen"  # 圓外部區域
+    return None
+
+# 掃描畫布並著色
+def scan_and_draw():
+    for y in range(0, canvas.height, 10):  # 每10像素掃描一次
+        for x in range(0, canvas.width, 10):
+            properties = calculate_point_properties(x, y)
+            regions = get_region_via_conditions(properties)
+            color = get_region_color_by_regions(regions)
+            if color:
+                ctx.fillStyle = color
+                ctx.beginPath()
+                ctx.arc(x + 5, y + 5, 5, 0, 2 * 3.14)
+                ctx.fill()
+
+# 開始掃描和標示
+scan_and_draw()</pre>
+<p><br/><br/></p>
+<p></p>
 <p></p>
 <!-- 導入 brython 程式庫 -->
 <p>
@@ -280,7 +246,7 @@ ctx.stroke()</pre>
 <p>
 <script>
 window.onload=function(){
-    brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 }
 </script>
 </p>
@@ -289,130 +255,94 @@ window.onload=function(){
 <script type="text/python3">
 from browser import html
 from browser import document as doc
-import math
 
-canvas = html.CANVAS(width=500, height=500)
+# 設置畫布
+canvas = html.CANVAS(width=600, height=600)
 brython_div = doc["brython_div1"]
 brython_div <= canvas
 
 ctx = canvas.getContext("2d")
-ctx.lineWidth = 4
+ctx.lineWidth = 1
 
-# 混色的
-ctx.globalCompositeOperation = "screem"
-
-# 黑邊圓*2 (每個畫四個邊邊)
-ctx.strokeStyle = 'black'
-
-# 第一個圓
-ctx.beginPath()
-ctx.arc(160, 160, 141, 0.25 * math.pi, 0.75 * math.pi)
-ctx.fillStyle = "Coral"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(160, 160, 141, 0.75 * math.pi, 1.25 * math.pi)
-ctx.fillStyle = "MediumPurple"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(160, 160, 141, 1.25 * math.pi, 1.75 * math.pi)
-ctx.fillStyle = "LimeGreen"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(160, 160, 141, 1.75 * math.pi, 0.25 * math.pi)
-ctx.fillStyle = "Beige"  
-ctx.fill()
-ctx.stroke()
-
-# 第二個圓
-ctx.beginPath()
-ctx.arc(260, 260, 141, 1.25 * math.pi, 1.75 * math.pi)
-ctx.fillStyle = "SkyBlue"
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(260, 260, 141, 1.75 * math.pi, 0.25 * math.pi)
-ctx.fillStyle = "Crimson"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(260, 260, 141, 0.25 * math.pi, 0.75 * math.pi)
-ctx.fillStyle = "LightCyan"
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(260, 260, 141, 0.75 * math.pi, 1.25 * math.pi)
-ctx.fillStyle = "Gold"
-ctx.fill()
-ctx.stroke()
-
-# 紅方形*2 (4個三角形)
+# 畫兩個矩形 (紅色邊框)
 ctx.strokeStyle = 'red'
 ctx.beginPath()
-ctx.moveTo(60, 60)
-ctx.lineTo(60, 260)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "SteelBlue"
-ctx.fill()
+ctx.rect(100, 100, 200, 200)
+ctx.rect(200, 200, 200, 200)
 ctx.stroke()
 
+# 畫兩個圓形 (黑色)
+ctx.strokeStyle = 'black'
 ctx.beginPath()
-ctx.moveTo(60, 60)
-ctx.lineTo(260, 60)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "DarkSlateBlue"  
-ctx.fill()
+ctx.arc(200, 200, 141.4, 0, 2 * 3.14)
+ctx.stroke()
+ctx.beginPath()
+ctx.arc(300, 300, 141.4, 0, 2 * 3.14)
 ctx.stroke()
 
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(360, 160)
-ctx.lineTo(360, 360)
-ctx.fillStyle = "LightYellow" 
-ctx.fill()
-ctx.stroke()
+# 計算點的布林值屬性
+def calculate_point_properties(x, y):
+    in_circle1 = (x - 200) ** 2 + (y - 200) ** 2 < 141.4 ** 2
+    in_circle2 = (x - 300) ** 2 + (y - 300) ** 2 < 141.4 ** 2
+    in_square1 = 100 <= x <= 300 and 100 <= y <= 300
+    in_square2 = 200 <= x <= 400 and 200 <= y <= 400
+    return {
+        "in_circle1": in_circle1,
+        "in_circle2": in_circle2,
+        "in_square1": in_square1,
+        "in_square2": in_square2,
+    }
 
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(160, 360)
-ctx.lineTo(360, 360)
-ctx.fillStyle = "PaleGreen"  
-ctx.fill()
-ctx.stroke()
+# 根據布林值屬性判定區域
+def get_region_via_conditions(properties):
+    regions = []
 
-# 重疊的小方型
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(160, 260)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "ForestGreen"  
-ctx.fill()
-ctx.stroke()
+    if properties["in_circle1"] and properties["in_square1"]:
+        regions.append("circle1_in_square1")  # 第一個圓內且在第一個正方形內
+    elif properties["in_circle1"]:
+        regions.append("circle1_outside_square1")  # 第一個圓內但不在正方形內
 
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(260, 160)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "DarkOrchid"
-ctx.fill()
-ctx.stroke()
+    if properties["in_circle2"] and properties["in_square2"]:
+        regions.append("circle2_in_square2")  # 第二個圓內且在第二個正方形內
+    elif properties["in_circle2"]:
+        regions.append("circle2_outside_square2")  # 第二個圓內但不在正方形內
 
-# 藍斜線
-ctx.strokeStyle = 'blue'
-ctx.beginPath()
-ctx.moveTo(60, 60)
-ctx.lineTo(360,360)
-ctx.stroke()
+    if not properties["in_circle1"] and not properties["in_circle2"]:
+        regions.append("outside_circles")  # 不在兩個圓內
+
+    return regions
+
+# 根據區域決定顏色
+def get_region_color_by_regions(regions):
+    if "circle1_in_square1" in regions:
+        return "green"
+    if "circle1_outside_square1" in regions:
+        return "red"
+    if "circle2_in_square2" in regions:
+        return "blue"
+    if "circle2_outside_square2" in regions:
+        return "yellow"
+    if "outside_circles" in regions:
+        return "lightgreen"  # 圓外部區域
+    return None
+
+# 掃描畫布並著色
+def scan_and_draw():
+    for y in range(0, canvas.height, 10):  # 每10像素掃描一次
+        for x in range(0, canvas.width, 10):
+            properties = calculate_point_properties(x, y)
+            regions = get_region_via_conditions(properties)
+            color = get_region_color_by_regions(regions)
+            if color:
+                ctx.fillStyle = color
+                ctx.beginPath()
+                ctx.arc(x + 5, y + 5, 5, 0, 2 * 3.14)
+                ctx.fill()
+
+# 開始掃描和標示
+scan_and_draw()
 </script>
-</p><br />w12_hw << <a href='w12_hw.html'>Previous</a> <a href='w14_ex.html'>Next</a> >> w14_ex</div>
+</p><br />w13_ai << <a href='w13_ai.html'>Previous</a> <a href='w14_ex.html'>Next</a> >> w14_ex</div>
         
     <!-- footer -->
       <div class="container">

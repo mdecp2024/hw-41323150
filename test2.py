@@ -7,5 +7,5 @@ import keyword
 keywords = keyword.kwlist
 
 print(keywords)
-and = [5,[4,3],2,1]
-print(and[2])
+and1 = [5,[4,3],2,1]
+print(and1[2])
